@@ -5,6 +5,11 @@ public class ModeloCoche {
 	private String nombreModelo;
 	
 	
+	public ModeloCoche(String nombreMarca,String nombreModelo) {
+		this.nombreMarca=nombreMarca;
+		this.nombreModelo=nombreModelo;
+		
+	}
 	public String getNombreMarca() {
 		return nombreMarca;
 	}

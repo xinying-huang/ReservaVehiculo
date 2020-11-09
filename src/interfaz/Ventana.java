@@ -7,6 +7,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
@@ -14,6 +15,12 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
+import javax.swing.JRadioButton;
+import javax.swing.SwingConstants;
+import java.awt.SystemColor;
 
 public class Ventana extends JFrame {
 
@@ -52,6 +59,17 @@ public class Ventana extends JFrame {
 	private JTextField textField_5;
 	private JLabel lblModelo;
 	private JTextField textField_6;
+	private JLabel lblGama;
+	private JComboBox comboBox_1;
+	private JTextField textField_8;
+	private JLabel lblCambioDeMarcha;
+	private JComboBox comboBox_2;
+	private JLabel lblEstado;
+	private JComboBox comboBox_3;
+	private JLabel lblCantidad;
+	private JTextField textField_7;
+	private JPanel panel_exito;
+	private JLabel lblSeHaDado;
 
 	/**
 	 * Launch the application.
@@ -76,118 +94,237 @@ public class Ventana extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 943, 572);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.WHITE);
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		lblGrupo = new JLabel("Grupo 06");
-		lblGrupo.setForeground(Color.ORANGE);
+		lblGrupo.setForeground(Color.WHITE);
 		lblGrupo.setBounds(5, 5, 84, 23);
 		contentPane.add(lblGrupo);
 
-		lblReservaDeVehiculo = new JLabel("Reserva de Vehiculo");
-		lblReservaDeVehiculo.setForeground(Color.ORANGE);
-		lblReservaDeVehiculo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		lblReservaDeVehiculo.setBounds(350, 5, 218, 71);
+		lblReservaDeVehiculo = new JLabel("Sistema de Reserva");
+		lblReservaDeVehiculo.setForeground(Color.WHITE);
+		lblReservaDeVehiculo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
+		lblReservaDeVehiculo.setBounds(307, 5, 335, 71);
 		contentPane.add(lblReservaDeVehiculo);
 
 		panel_alta_vehiculo = new JPanel();
-		panel_alta_vehiculo.setBackground(Color.WHITE);
-		panel_alta_vehiculo.setBounds(200, 143, 536, 283);
+		panel_alta_vehiculo.setBackground(SystemColor.activeCaption);
+		panel_alta_vehiculo.setBounds(200, 93, 536, 409);
+		panel_alta_vehiculo.setBorder(new LineBorder(Color.WHITE, 2, true));
 		contentPane.add(panel_alta_vehiculo);
 		panel_alta_vehiculo.setLayout(null);
 
-		lblMatricula = new JLabel("Matricula : ");
-		lblMatricula.setBounds(45, 43, 79, 25);
+		lblMatricula = new JLabel("Matr\u00EDculas : ");
+		lblMatricula.setForeground(Color.WHITE);
+		lblMatricula.setBounds(10, 11, 114, 25);
 		panel_alta_vehiculo.add(lblMatricula);
 
 		lblMarca = new JLabel("Marca : ");
-		lblMarca.setBounds(45, 79, 58, 25);
+		lblMarca.setForeground(Color.WHITE);
+		lblMarca.setBounds(10, 47, 93, 25);
 		panel_alta_vehiculo.add(lblMarca);
 
 		btnDarDeAlta = new JButton("Dar de alta");
-		btnDarDeAlta.setBounds(45, 213, 450, 23);
+		btnDarDeAlta.setForeground(Color.WHITE);
+		btnDarDeAlta.setBorder(new LineBorder(Color.WHITE, 2, true));
+
+		btnDarDeAlta.setBackground(SystemColor.activeCaption);
+		btnDarDeAlta.setBounds(10, 341, 516, 23);
 		panel_alta_vehiculo.add(btnDarDeAlta);
 
 		btnVolver = new JButton("Volver");
-
-		btnVolver.setBounds(45, 249, 450, 23);
+		btnVolver.setForeground(Color.WHITE);
+		btnVolver.setBackground(SystemColor.activeCaption);
+		btnVolver.setBorder(new LineBorder(Color.WHITE, 2, true));
+		btnVolver.setBounds(10, 375, 516, 23);
 		panel_alta_vehiculo.add(btnVolver);
 
 		textField_4 = new JTextField();
-		textField_4.setBounds(134, 45, 361, 20);
+		textField_4.setBounds(134, 13, 392, 20);
 		panel_alta_vehiculo.add(textField_4);
 		textField_4.setColumns(10);
 
 		textField_5 = new JTextField();
-		textField_5.setBounds(134, 81, 361, 20);
+		textField_5.setBounds(134, 49, 392, 20);
 		panel_alta_vehiculo.add(textField_5);
 		textField_5.setColumns(10);
 
 		lblModelo = new JLabel("Modelo : ");
-		lblModelo.setBounds(45, 115, 79, 25);
+		lblModelo.setForeground(Color.WHITE);
+		lblModelo.setBounds(10, 83, 114, 25);
 		panel_alta_vehiculo.add(lblModelo);
 
 		textField_6 = new JTextField();
-		textField_6.setBounds(134, 117, 361, 20);
+		textField_6.setBounds(134, 85, 392, 20);
 		panel_alta_vehiculo.add(textField_6);
 		textField_6.setColumns(10);
+
+		lblGama = new JLabel("Gama : ");
+		lblGama.setForeground(Color.WHITE);
+		lblGama.setBounds(10, 124, 114, 23);
+		panel_alta_vehiculo.add(lblGama);
+
+		comboBox_1 = new JComboBox();
+		comboBox_1.setBackground(Color.WHITE);
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"", "bajo", "medio", "alto"}));
+		comboBox_1.setBounds(134, 124, 392, 22);
+		panel_alta_vehiculo.add(comboBox_1);
+
+		JLabel lblOpcinDeModelo = new JLabel("Opci\u00F3n de modelo : ");
+		lblOpcinDeModelo.setForeground(Color.WHITE);
+		lblOpcinDeModelo.setBounds(10, 226, 114, 25);
+		panel_alta_vehiculo.add(lblOpcinDeModelo);
+
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(Color.WHITE, 2));
+		panel.setBackground(SystemColor.activeCaption);
+		panel.setBounds(134, 226, 392, 104);
+		panel_alta_vehiculo.add(panel);
+		panel.setLayout(null);
+
+		JLabel lblCapacidadDeAforo = new JLabel("Capacidad de Aforo : ");
+		lblCapacidadDeAforo.setForeground(Color.WHITE);
+		lblCapacidadDeAforo.setBounds(10, 70, 118, 23);
+		panel.add(lblCapacidadDeAforo);
+
+		JRadioButton rdbtnTechoSolar = new JRadioButton("Techo Solar");
+		rdbtnTechoSolar.setForeground(Color.WHITE);
+		rdbtnTechoSolar.setBackground(SystemColor.activeCaption);
+		rdbtnTechoSolar.setBounds(10, 5, 111, 23);
+		panel.add(rdbtnTechoSolar);
+
+		textField_8 = new JTextField();
+		textField_8.setBounds(138, 71, 244, 20);
+		panel.add(textField_8);
+		textField_8.setColumns(10);
+
+		lblCambioDeMarcha = new JLabel("Cambio de Marcha : ");
+		lblCambioDeMarcha.setForeground(Color.WHITE);
+		lblCambioDeMarcha.setBounds(10, 35, 118, 24);
+		panel.add(lblCambioDeMarcha);
+
+		comboBox_2 = new JComboBox();
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"", "cambio manual", "cambio autom\u00E1tico"}));
+		comboBox_2.setBounds(138, 36, 244, 22);
+		panel.add(comboBox_2);
+
+		lblEstado = new JLabel("Estado : ");
+		lblEstado.setForeground(Color.WHITE);
+		lblEstado.setBounds(10, 158, 114, 23);
+		panel_alta_vehiculo.add(lblEstado);
+
+		comboBox_3 = new JComboBox();
+		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"disponible"}));
+		comboBox_3.setBounds(134, 158, 392, 22);
+		panel_alta_vehiculo.add(comboBox_3);
+
+		lblCantidad = new JLabel("Cantidad : ");
+		lblCantidad.setForeground(Color.WHITE);
+		lblCantidad.setBounds(10, 192, 114, 23);
+		panel_alta_vehiculo.add(lblCantidad);
+
+		textField_7 = new JTextField();
+		textField_7.setBounds(134, 193, 392, 20);
+		panel_alta_vehiculo.add(textField_7);
+		textField_7.setColumns(10);
+		panel_alta_vehiculo.setVisible(false);
+		btnVolver.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel_alta_vehiculo.setVisible(false);
+				panel_empleado.setVisible(true);
+			}
+		});//alta vehiculo->empleado
+		btnDarDeAlta.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel_exito.setVisible(true);
+				panel_alta_vehiculo.setVisible(false);
+			}
+		});//alta vehiculo->exito
 
 		panel_alta_cliente = new JPanel();
 		panel_alta_cliente.setBounds(200, 143, 536, 283);
 		contentPane.add(panel_alta_cliente);
 		panel_alta_cliente.setLayout(null);
-		panel_alta_cliente.setBackground(Color.WHITE);
-
+		panel_alta_cliente.setBackground(SystemColor.activeCaption);
+		panel_alta_cliente.setBorder(new LineBorder(Color.WHITE, 2, true));
 		btnNewButton = new JButton("Dar de alta");
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBorder(new LineBorder(Color.WHITE, 2, true));
+
+		btnNewButton.setBackground(SystemColor.activeCaption);
 		btnNewButton.setBounds(39, 201, 453, 23);
 		panel_alta_cliente.add(btnNewButton);
 
 		lblNombreYApellido = new JLabel("Nombre y Apellido : ");
-		lblNombreYApellido.setBounds(39, 44, 131, 23);
+		lblNombreYApellido.setForeground(Color.WHITE);
+		lblNombreYApellido.setBounds(39, 11, 131, 23);
 		panel_alta_cliente.add(lblNombreYApellido);
 
 		lblTarjeta = new JLabel("Tarjeta bancario : ");
-		lblTarjeta.setBounds(39, 112, 131, 23);
+		lblTarjeta.setForeground(Color.WHITE);
+		lblTarjeta.setBounds(39, 79, 131, 23);
 		panel_alta_cliente.add(lblTarjeta);
 
-		lblTelefono = new JLabel("Telefono : ");
-		lblTelefono.setBounds(39, 78, 131, 23);
+		lblTelefono = new JLabel("Tel\u00E9fono : ");
+		lblTelefono.setForeground(Color.WHITE);
+		lblTelefono.setBounds(39, 45, 131, 23);
 		panel_alta_cliente.add(lblTelefono);
 
 		lblEmail = new JLabel("Email : ");
-		lblEmail.setBounds(39, 146, 131, 23);
+		lblEmail.setForeground(Color.WHITE);
+		lblEmail.setBounds(39, 113, 131, 23);
 		panel_alta_cliente.add(lblEmail);
 
 		textField = new JTextField();
-		textField.setBounds(180, 45, 312, 20);
+		textField.setBounds(180, 12, 312, 20);
 		panel_alta_cliente.add(textField);
 		textField.setColumns(10);
 
 		textField_1 = new JTextField();
-		textField_1.setBounds(180, 79, 312, 20);
+		textField_1.setBounds(180, 46, 312, 20);
 		panel_alta_cliente.add(textField_1);
 		textField_1.setColumns(10);
 
 		textField_2 = new JTextField();
-		textField_2.setBounds(180, 113, 312, 20);
+		textField_2.setBounds(180, 80, 312, 20);
 		panel_alta_cliente.add(textField_2);
 		textField_2.setColumns(10);
 
 		textField_3 = new JTextField();
-		textField_3.setBounds(180, 147, 312, 20);
+		textField_3.setBounds(180, 114, 312, 20);
 		panel_alta_cliente.add(textField_3);
 		textField_3.setColumns(10);
 
 		btnVolver_cliente = new JButton("Volver");
+		btnVolver_cliente.setForeground(Color.WHITE);
+		btnVolver_cliente.setBackground(SystemColor.activeCaption);
+		btnVolver_cliente.setBorder(new LineBorder(Color.WHITE, 2, true));
 
 		btnVolver_cliente.setBounds(39, 232, 453, 23);
 		panel_alta_cliente.add(btnVolver_cliente);
 
 		btnVolver_empleado = new JButton("Volver");
+		btnVolver_empleado.setForeground(Color.WHITE);
+		btnVolver_empleado.setBackground(SystemColor.activeCaption);
 		btnVolver_empleado.setBounds(39, 232, 453, 23);
 		panel_alta_cliente.add(btnVolver_empleado);
+		btnVolver_empleado.setBorder(new LineBorder(Color.WHITE, 2, true));
+
+		JLabel lblTipoDeCliente = new JLabel("Tipo de cliente : ");
+		lblTipoDeCliente.setForeground(Color.WHITE);
+		lblTipoDeCliente.setBounds(39, 147, 131, 23);
+		panel_alta_cliente.add(lblTipoDeCliente);
+
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"", "cliente individual", "cliente de negocio"}));
+		comboBox.setBackground(Color.WHITE);
+		comboBox.setBounds(180, 147, 312, 22);
+		panel_alta_cliente.add(comboBox);
 		//------------------------------------------------------------------------------
 		panel_alta_cliente.setVisible(false);
 
@@ -217,110 +354,75 @@ public class Ventana extends JFrame {
 
 			}
 		});//alta cliente->empleado
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel_exito.setVisible(true);
+				panel_alta_cliente.setVisible(false);
+			}
+		});//alta cliente->exito
+
+		panel_exito = new JPanel();
+		panel_exito.setBackground(SystemColor.activeCaption);
+		panel_exito.setBounds(5, 93, 914, 431);
+		contentPane.add(panel_exito);
+		panel_exito.setLayout(null);
+
+		lblSeHaDado = new JLabel("Se ha dado de alta con \u00E9xito !!!!");
+		lblSeHaDado.setForeground(Color.WHITE);
+		lblSeHaDado.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSeHaDado.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		lblSeHaDado.setBounds(197, 92, 522, 108);
+		panel_exito.add(lblSeHaDado);
+
+		JButton btnVolver_3 = new JButton("Volver");
+		btnVolver_3.setForeground(Color.WHITE);
+		btnVolver_3.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		btnVolver_3.setBorder(new LineBorder(Color.WHITE, 2, true));
+		btnVolver_3.setBackground(SystemColor.activeCaption);
+		btnVolver_3.setBounds(380, 211, 152, 40);
+		panel_exito.add(btnVolver_3);
+		panel_exito.setVisible(false);
+		btnVolver_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel_exito.setVisible(false);
+				panel_inicio.setVisible(true);
+			}
+		});//exito->inicio
 
 
 		panel_empleado = new JPanel();
 		panel_empleado.setBounds(5, 93, 914, 431);
 		contentPane.add(panel_empleado);
 		panel_empleado.setLayout(null);
-		panel_empleado.setBackground(Color.WHITE);
+		panel_empleado.setBackground(SystemColor.activeCaption);
 
 		button = new JButton("Dar alta cliente");
+		button.setForeground(Color.WHITE);
 
 		button.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		button.setBackground(Color.ORANGE);
+		button.setBackground(SystemColor.activeCaption);
 		button.setBounds(96, 128, 234, 126);
+		button.setBorder(new LineBorder(Color.WHITE, 2, true));
 		panel_empleado.add(button);
 
 		btnDarAltaVehiculo = new JButton("Dar alta vehiculo");
+		btnDarAltaVehiculo.setForeground(Color.WHITE);
+		btnDarAltaVehiculo.setBorder(new LineBorder(Color.WHITE, 2, true));
 
 		btnDarAltaVehiculo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnDarAltaVehiculo.setBackground(Color.ORANGE);
+		btnDarAltaVehiculo.setBackground(SystemColor.activeCaption);
 		btnDarAltaVehiculo.setBounds(564, 128, 261, 126);
 		panel_empleado.add(btnDarAltaVehiculo);
 
 		btnVolver_2 = new JButton("Volver");
-
+		btnVolver_2.setForeground(Color.WHITE);
+		btnVolver_2.setBackground(SystemColor.activeCaption);
+		btnVolver_2.setBorder(new LineBorder(Color.WHITE, 2, true));
 		btnVolver_2.setBounds(10, 397, 894, 23);
 		panel_empleado.add(btnVolver_2);
 		panel_empleado.setVisible(false);
-
-		panel_cliente = new JPanel();
-		panel_cliente.setBounds(5, 93, 914, 431);
-		contentPane.add(panel_cliente);
-		panel_cliente.setLayout(null);
-		panel_cliente.setBackground(Color.WHITE);
-
-		btnDarAlta = new JButton("Dar alta cliente");
-
-		btnDarAlta.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnDarAlta.setBackground(Color.ORANGE);
-		btnDarAlta.setBounds(96, 128, 234, 126);
-		panel_cliente.add(btnDarAlta);
-
-		btnReservaVehiculo = new JButton("Reserva vehiculo");
-		btnReservaVehiculo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnReservaVehiculo.setBackground(Color.ORANGE);
-		btnReservaVehiculo.setBounds(564, 128, 261, 126);
-		panel_cliente.add(btnReservaVehiculo);
-
-		btnVolver_1 = new JButton("Volver");
-
-		btnVolver_1.setBounds(10, 397, 894, 23);
-		panel_cliente.add(btnVolver_1);
-		panel_cliente.setVisible(false);
-
-
-		panel_inicio = new JPanel();
-		panel_inicio.setBackground(Color.WHITE);
-		panel_inicio.setBounds(5, 93, 914, 431);
-		contentPane.add(panel_inicio);
-		panel_inicio.setLayout(null);
-
-		btnCliente = new JButton("Cliente");
-
-		btnCliente.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnCliente.setBackground(Color.ORANGE);
-		btnCliente.setBounds(177, 128, 153, 126);
-		panel_inicio.add(btnCliente);
-
-		btnEmpleado = new JButton("Empleado");
-
-		btnEmpleado.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnEmpleado.setBackground(Color.ORANGE);
-		btnEmpleado.setBounds(564, 128, 153, 126);
-		panel_inicio.add(btnEmpleado);
-		panel_alta_vehiculo.setVisible(false);
-		//------------------------------------------------------------------------------
-		btnCliente.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				panel_inicio.setVisible(false);
-				panel_cliente.setVisible(true);
-			}
-		});//inicio->cliente
-		btnVolver_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				panel_inicio.setVisible(true);
-				panel_cliente.setVisible(false);
-			}
-		});//cliente -> inicio
-		btnDarAlta.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				panel_cliente.setVisible(false);
-				panel_alta_cliente.setVisible(true);
-				btnVolver_cliente.setVisible(true);
-			}
-		});//cliente->alta cliente
-		btnEmpleado.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				panel_inicio.setVisible(false);
-				panel_empleado.setVisible(true);
-			}
-		});//inicio->empleado
 		btnVolver_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -336,13 +438,6 @@ public class Ventana extends JFrame {
 				btnVolver_empleado.setVisible(true);
 			}
 		});//empleado->alta cliente
-		btnVolver.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				panel_alta_vehiculo.setVisible(false);
-				panel_empleado.setVisible(true);
-			}
-		});//alta vehiculo->empleado
 		btnDarAltaVehiculo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -350,5 +445,92 @@ public class Ventana extends JFrame {
 				panel_empleado.setVisible(false);
 			}
 		});//empleado->alta vehiculo
+
+		panel_cliente = new JPanel();
+		panel_cliente.setBounds(5, 93, 914, 431);
+		contentPane.add(panel_cliente);
+		panel_cliente.setLayout(null);
+		panel_cliente.setBackground(SystemColor.activeCaption);
+
+		btnDarAlta = new JButton("Dar alta cliente");
+		btnDarAlta.setForeground(Color.WHITE);
+
+		btnDarAlta.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		btnDarAlta.setBackground(SystemColor.activeCaption);
+		btnDarAlta.setBounds(96, 128, 234, 126);
+		btnDarAlta.setBorder(new LineBorder(Color.WHITE, 2, true));
+		panel_cliente.add(btnDarAlta);
+
+		btnReservaVehiculo = new JButton("Reserva vehiculo");
+		btnReservaVehiculo.setForeground(Color.WHITE);
+		btnReservaVehiculo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		btnReservaVehiculo.setBackground(SystemColor.activeCaption);
+		btnReservaVehiculo.setBounds(564, 128, 261, 126);
+		btnReservaVehiculo.setBorder(new LineBorder(Color.WHITE, 2, true));
+		panel_cliente.add(btnReservaVehiculo);
+
+		btnVolver_1 = new JButton("Volver");
+		btnVolver_1.setForeground(Color.WHITE);
+		btnVolver_1.setBackground(SystemColor.activeCaption);
+		btnVolver_1.setBorder(new LineBorder(Color.WHITE, 2, true));
+
+		btnVolver_1.setBounds(10, 397, 894, 23);
+		panel_cliente.add(btnVolver_1);
+		panel_cliente.setVisible(false);
+		btnVolver_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel_inicio.setVisible(true);
+				panel_cliente.setVisible(false);
+			}
+		});//cliente -> inicio
+		btnDarAlta.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel_cliente.setVisible(false);
+				panel_alta_cliente.setVisible(true);
+				btnVolver_cliente.setVisible(true);
+			}
+		});//cliente->alta cliente
+
+
+		panel_inicio = new JPanel();
+		panel_inicio.setBackground(SystemColor.activeCaption);
+		panel_inicio.setBounds(5, 93, 914, 431);
+		contentPane.add(panel_inicio);
+		panel_inicio.setLayout(null);
+
+		btnCliente = new JButton("Cliente");
+		btnCliente.setForeground(Color.WHITE);
+
+
+		btnCliente.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		btnCliente.setBackground(SystemColor.activeCaption);
+		btnCliente.setBounds(177, 128, 153, 126);
+		panel_inicio.add(btnCliente);
+		btnCliente.setBorder(new LineBorder(Color.WHITE, 2, true));
+		btnEmpleado = new JButton("Empleado");
+		btnEmpleado.setForeground(Color.WHITE);
+
+		btnEmpleado.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		btnEmpleado.setBackground(SystemColor.activeCaption);
+		btnEmpleado.setBounds(564, 128, 153, 126);
+		panel_inicio.add(btnEmpleado);
+		btnEmpleado.setBorder(new LineBorder(Color.WHITE, 2, true));
+		//------------------------------------------------------------------------------
+		btnCliente.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel_inicio.setVisible(false);
+				panel_cliente.setVisible(true);
+			}
+		});//inicio->cliente
+		btnEmpleado.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel_inicio.setVisible(false);
+				panel_empleado.setVisible(true);
+			}
+		});//inicio->empleado
 	}
 }

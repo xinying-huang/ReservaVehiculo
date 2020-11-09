@@ -1,16 +1,16 @@
 package ILF;
-
+import EIF.*;
 public class Vehiculo {
 	private String matricula;
 	private String marca;
 	private String modelo;
-	private String gama;
+	private Gama gama;
 	private int cantidad;
 	private String estado;
-	private String opcionDeModelo;
+	private OpcionesModeloCoche opcionDeModelo;
 	
 	
-	public Vehiculo(String matricula,String marca,String modelo,String gama,int cantidad,String estado,String opcionDeModelo) {
+	public Vehiculo(String matricula,String marca,String modelo,Gama gama,int cantidad,String estado,OpcionesModeloCoche opcionDeModelo) {
 		this.matricula=matricula;
 		this.marca=marca;
 		this.modelo=modelo;
@@ -46,11 +46,11 @@ public class Vehiculo {
 		this.modelo = modelo;
 	}
 
-	public String getGama() {
+	public Gama getGama() {
 		return gama;
 	}
 
-	public void setGama(String gama) {
+	public void setGama(Gama gama) {
 		this.gama = gama;
 	}
 
@@ -70,11 +70,11 @@ public class Vehiculo {
 		this.estado = estado;
 	}
 
-	public String getOpcionDeModelo() {
+	public OpcionesModeloCoche getOpcionDeModelo() {
 		return opcionDeModelo;
 	}
 
-	public void setOpcionDeModelo(String opcionDeModelo) {
+	public void setOpcionDeModelo(OpcionesModeloCoche opcionDeModelo) {
 		this.opcionDeModelo = opcionDeModelo;
 	}
 	

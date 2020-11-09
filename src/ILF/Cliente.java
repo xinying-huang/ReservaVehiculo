@@ -1,21 +1,28 @@
 package ILF;
 
 public class Cliente {
-private int IDCliente;
+private String IDCliente;
 private String tipo;
 private String nombre;
-private int tarjetaBancaria;
-private int telefono;
+private String tarjetaBancaria;
+private String telefono;
 private String email;
 
 
 
-
-public double getIDCliente() {
+public Cliente(String IDCliente,String tipo,String nombre,String tarjetaBancaria,String telefono,String email) {
+	this.IDCliente= IDCliente;
+	this.tipo=tipo;
+	this.nombre=nombre;
+	this.tarjetaBancaria=tarjetaBancaria;
+	this.telefono=telefono;
+	this.email=email;
+}
+public String getIDCliente() {
 	return IDCliente;
 }
 
-public void setIDCliente(int iDCliente) {
+public void setIDCliente(String iDCliente) {
 	IDCliente = iDCliente;
 }
 
@@ -35,19 +42,19 @@ public void setNombre(String nombre) {
 	this.nombre = nombre;
 }
 
-public int getTarjetaBancaria() {
+public String getTarjetaBancaria() {
 	return tarjetaBancaria;
 }
 
-public void setTarjetaBancaria(int tarjetaBancaria) {
+public void setTarjetaBancaria(String tarjetaBancaria) {
 	this.tarjetaBancaria = tarjetaBancaria;
 }
 
-public int getTelefono() {
+public String getTelefono() {
 	return telefono;
 }
 
-public void setTelefono(int telefono) {
+public void setTelefono(String telefono) {
 	this.telefono = telefono;
 }
 

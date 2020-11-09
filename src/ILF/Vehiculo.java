@@ -9,6 +9,19 @@ public class Vehiculo {
 	private String estado;
 	private String opcionDeModelo;
 	
+	
+	public Vehiculo(String matricula,String marca,String modelo,String gama,int cantidad,String estado,String opcionDeModelo) {
+		this.matricula=matricula;
+		this.marca=marca;
+		this.modelo=modelo;
+		this.gama=gama;
+		this.cantidad=cantidad;
+		this.estado=estado;
+		this.opcionDeModelo=opcionDeModelo;
+		
+	}
+	
+	
 	public String getMatricula() {
 		return matricula;
 	}

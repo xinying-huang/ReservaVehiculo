@@ -12,13 +12,7 @@ public class AltaCliente {
 	 File BBDD_Cliente;
 	 FileWriter fw;
 	 PrintWriter pw;
-	private String BBDD;
-	String nombreCompleto;
-	static int tarjetaBancaria;//Tarjeta 13-19
-	String telefono;//9 digito
-	static String email;//contiene @
-	String tipoCliente;
-	String ID;
+	 
 	public AltaCliente(){
 		BBDD_Cliente=new File("base de cliente");
 		try {

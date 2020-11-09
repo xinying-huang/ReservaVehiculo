@@ -5,7 +5,12 @@ private String techoSolar;
 private String cambio; //puede ser manual o automático
 private int capacidadAforo;
 
-
+public OpcionesModeloCoche(String techoSolar, String cambio,int capacidadAforo)
+{
+	this.techoSolar=techoSolar;
+	this.cambio=cambio;
+	this.capacidadAforo=capacidadAforo;
+	}
 public String getTechoSolar() {
 	return techoSolar;
 }

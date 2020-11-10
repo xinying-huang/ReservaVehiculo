@@ -1,20 +1,20 @@
 package EIF;
 
 public class OpcionesModeloCoche {
-private String techoSolar;
+private boolean techoSolar;
 private String cambio; //puede ser manual o automático
-private String capacidadAforo;
+private int capacidadAforo;
 
-public OpcionesModeloCoche(String techoSolar, String cambio,String capacidadAforo)
+public OpcionesModeloCoche(boolean techoSolar, String cambio,int capacidadAforo)
 {
 	this.techoSolar=techoSolar;
 	this.cambio=cambio;
 	this.capacidadAforo=capacidadAforo;
 	}
-public String getTechoSolar() {
+public boolean getTechoSolar() {
 	return techoSolar;
 }
-public void setTechoSolar(String techoSolar) {
+public void setTechoSolar(boolean techoSolar) {
 	this.techoSolar = techoSolar;
 }
 public String getCambio() {
@@ -24,10 +24,10 @@ public String getCambio() {
 public void setCambio(String cambio) {
 	this.cambio = cambio;
 }
-public String getCapacidadAforo() {
+public int getCapacidadAforo() {
 	return capacidadAforo;
 }
-public void setCapacidadAforo(String capacidadAforo) {
+public void setCapacidadAforo(int capacidadAforo) {
 	this.capacidadAforo = capacidadAforo;
 }
 

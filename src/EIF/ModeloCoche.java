@@ -5,11 +5,9 @@ public class ModeloCoche {
 	
 	
 	public ModeloCoche(String nombreModelo) {
-
 		this.nombreModelo=nombreModelo;
 		
 	}
-
 	public String getNombreModelo() {
 		return nombreModelo;
 	}

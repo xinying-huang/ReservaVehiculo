@@ -10,12 +10,11 @@ public class Vehiculo {
 	private OpcionesModeloCoche opcionDeModelo;
 	
 	
-	public Vehiculo(String matricula,String marca,String modelo,Gama gama,int cantidad,String estado,OpcionesModeloCoche opcionDeModelo) {
+	public Vehiculo(String matricula,String marca,String modelo,Gama gama,String estado,OpcionesModeloCoche opcionDeModelo) {
 		this.matricula=matricula;
 		this.marca=marca;
 		this.modelo=modelo;
 		this.gama=gama;
-		this.cantidad=cantidad;
 		this.estado=estado;
 		this.opcionDeModelo=opcionDeModelo;
 		

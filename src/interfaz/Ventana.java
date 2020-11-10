@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import EIF.Gama;
 import ILF.Cliente;
 
 import javax.swing.JLabel;
@@ -73,8 +74,6 @@ public class Ventana extends JFrame {
 	private JComboBox comboBox_2;
 	private JLabel lblEstado;
 	private JComboBox comboBox_3;
-	private JLabel lblCantidad;
-	private JTextField textField_7;
 	private JPanel panel_exito;
 	private JLabel lblSeHaDado;
 	private JLabel lblDnicif;
@@ -139,7 +138,7 @@ public class Ventana extends JFrame {
 
 		panel_alta_vehiculo = new JPanel();
 		panel_alta_vehiculo.setBackground(SystemColor.activeCaption);
-		panel_alta_vehiculo.setBounds(200, 71, 536, 431);
+		panel_alta_vehiculo.setBounds(200, 71, 536, 411);
 		panel_alta_vehiculo.setBorder(new LineBorder(Color.WHITE, 2, true));
 		contentPane.add(panel_alta_vehiculo);
 		panel_alta_vehiculo.setLayout(null);
@@ -159,14 +158,14 @@ public class Ventana extends JFrame {
 		btnDarDeAlta.setBorder(new LineBorder(Color.WHITE, 2, true));
 
 		btnDarDeAlta.setBackground(SystemColor.activeCaption);
-		btnDarDeAlta.setBounds(10, 363, 516, 23);
+		btnDarDeAlta.setBounds(10, 343, 516, 23);
 		panel_alta_vehiculo.add(btnDarDeAlta);
 
 		btnVolver = new JButton("Volver");
 		btnVolver.setForeground(Color.WHITE);
 		btnVolver.setBackground(SystemColor.activeCaption);
 		btnVolver.setBorder(new LineBorder(Color.WHITE, 2, true));
-		btnVolver.setBounds(10, 397, 516, 23);
+		btnVolver.setBounds(10, 377, 516, 23);
 		panel_alta_vehiculo.add(btnVolver);
 
 		textField_4 = new JTextField();
@@ -202,13 +201,13 @@ public class Ventana extends JFrame {
 
 		JLabel lblOpcinDeModelo = new JLabel("Opci\u00F3n de modelo : ");
 		lblOpcinDeModelo.setForeground(Color.WHITE);
-		lblOpcinDeModelo.setBounds(10, 226, 114, 25);
+		lblOpcinDeModelo.setBounds(10, 192, 114, 25);
 		panel_alta_vehiculo.add(lblOpcinDeModelo);
 
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(Color.WHITE, 2));
 		panel.setBackground(SystemColor.activeCaption);
-		panel.setBounds(134, 226, 392, 104);
+		panel.setBounds(134, 192, 392, 104);
 		panel_alta_vehiculo.add(panel);
 		panel.setLayout(null);
 
@@ -248,19 +247,9 @@ public class Ventana extends JFrame {
 		comboBox_3.setBounds(134, 158, 392, 22);
 		panel_alta_vehiculo.add(comboBox_3);
 
-		lblCantidad = new JLabel("Cantidad(*) : ");
-		lblCantidad.setForeground(Color.WHITE);
-		lblCantidad.setBounds(10, 192, 114, 23);
-		panel_alta_vehiculo.add(lblCantidad);
-
-		textField_7 = new JTextField();
-		textField_7.setBounds(134, 193, 392, 20);
-		panel_alta_vehiculo.add(textField_7);
-		textField_7.setColumns(10);
-
 		lblCampos_1 = new JLabel("(*) : campos obligatorios.");
 		lblCampos_1.setForeground(Color.WHITE);
-		lblCampos_1.setBounds(10, 337, 516, 25);
+		lblCampos_1.setBounds(10, 307, 516, 25);
 		panel_alta_vehiculo.add(lblCampos_1);
 		panel_alta_vehiculo.setVisible(false);				
 
@@ -516,7 +505,6 @@ public class Ventana extends JFrame {
 				textField_6.setText("");
 				comboBox_1.setSelectedIndex(0);
 				comboBox_3.setSelectedIndex(0);
-				textField_7.setText("");
 				rdbtnTechoSolar.setSelected(false);
 				comboBox_2.setSelectedIndex(0);
 				textField_8.setText("");
@@ -545,7 +533,6 @@ public class Ventana extends JFrame {
 				textField_6.setText("");
 				comboBox_1.setSelectedIndex(0);
 				comboBox_3.setSelectedIndex(0);
-				textField_7.setText("");
 				rdbtnTechoSolar.setSelected(false);
 				comboBox_2.setSelectedIndex(0);
 				textField_8.setText("");
@@ -573,7 +560,6 @@ public class Ventana extends JFrame {
 				textField_6.setText("");
 				comboBox_1.setSelectedIndex(0);
 				comboBox_3.setSelectedIndex(0);
-				textField_7.setText("");
 				rdbtnTechoSolar.setSelected(false);
 				comboBox_2.setSelectedIndex(0);
 				textField_8.setText("");
@@ -613,7 +599,6 @@ public class Ventana extends JFrame {
 				textField_6.setText("");
 				comboBox_1.setSelectedIndex(0);
 				comboBox_3.setSelectedIndex(0);
-				textField_7.setText("");
 				rdbtnTechoSolar.setSelected(false);
 				comboBox_2.setSelectedIndex(0);
 				textField_8.setText("");
@@ -669,7 +654,6 @@ public class Ventana extends JFrame {
 				textField_6.setText("");
 				comboBox_1.setSelectedIndex(0);
 				comboBox_3.setSelectedIndex(0);
-				textField_7.setText("");
 				rdbtnTechoSolar.setSelected(false);
 				comboBox_2.setSelectedIndex(0);
 				textField_8.setText("");
@@ -704,7 +688,6 @@ public class Ventana extends JFrame {
 				textField_6.setText("");
 				comboBox_1.setSelectedIndex(0);
 				comboBox_3.setSelectedIndex(0);
-				textField_7.setText("");
 				rdbtnTechoSolar.setSelected(false);
 				comboBox_2.setSelectedIndex(0);
 				textField_8.setText("");
@@ -736,6 +719,20 @@ public class Ventana extends JFrame {
 		btnDarDeAlta.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Gama gama = new Gama((String) comboBox_1.getSelectedItem());
+				
+				boolean techosolar=rdbtnTechoSolar.isSelected();
+				String cambioMarcha=(String) comboBox_2.getSelectedItem();
+
+				String matricula= textField_4.getText();
+				String marca=textField_5.getText();
+				String modelo=textField_6.getText();				
+				String estado=(String) comboBox_3.getSelectedItem();	
+				
+				
+				
+				int capacidadAforo=Integer.parseInt(textField_8.getText());
+				
 				panel_inicio.setVisible(false);
 				panel_cliente.setVisible(false);
 				panel_exito.setVisible(true);
@@ -753,6 +750,7 @@ public class Ventana extends JFrame {
 	//Tarjeta=textFiel_2
 	//email=textFiel_3
 	//Tipo=comboBox
+	
 	//vehiculo
 	//matricula=textFiel_4
 	//marca=textFiel_5

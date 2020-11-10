@@ -25,7 +25,7 @@ public class AltaVehiculo {
 			e.printStackTrace();
 		}
 		this.pw=new PrintWriter(fw);
-//		System.out.print("Información del vehiculo\n\n");
+//		System.out.print("Informaciï¿½n del vehiculo\n\n");
 	}
 	public void Alta(Vehiculo v) {
 		if(v.getOpcionDeModelo().getCambio().isEmpty()) {
@@ -83,14 +83,14 @@ public class AltaVehiculo {
 //	}
 //	public static void main(String [ ] args) throws IOException {
 //		Gama gama=new Gama("Alta");
-//		OpcionesModeloCoche opciones=new OpcionesModeloCoche(true, "Cambio automótico",3 );
+//		OpcionesModeloCoche opciones=new OpcionesModeloCoche(true, "Cambio automï¿½tico",3 );
 //		Vehiculo vehicle= new Vehiculo("0000 ABC","Audi","A5 FSI QUATTRO 3.2",gama,"disponible",opciones);
 //		AltaVehiculo a = new AltaVehiculo();		
 //		a.Alta(vehicle);
 ////		a.imprimir(0);
 //		Gama gama2=new Gama("Media");
 //		OpcionesModeloCoche opciones2=new OpcionesModeloCoche(false, "",5);
-//		Vehiculo vehicle2= new Vehiculo("1111 ABC","SEAT","León",gama,"disponible",opciones);
+//		Vehiculo vehicle2= new Vehiculo("1111 ABC","SEAT","Leï¿½n",gama,"disponible",opciones);
 //		//AltaVehiculo a = new AltaVehiculo();		
 //		a.Alta(vehicle);
 ////		a.imprimir(0);		

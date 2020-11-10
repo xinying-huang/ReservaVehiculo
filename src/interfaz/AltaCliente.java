@@ -9,10 +9,10 @@ import ILF.Cliente;
 
 
 public class AltaCliente {
-	 File BBDD_Cliente;
-	 FileWriter fw;
-	 PrintWriter pw;
-	 
+	File BBDD_Cliente;
+	FileWriter fw;
+	PrintWriter pw;
+
 	public AltaCliente(){
 		BBDD_Cliente=new File("base de cliente");
 		try {
@@ -22,45 +22,35 @@ public class AltaCliente {
 			e.printStackTrace();
 		}
 		this.pw=new PrintWriter(fw);
-		
+
 	}
 	public void Alta(Cliente c) {
-		pw.print(c.getNombre());
+		pw.print("NOMBRE : "+c.getNombre());
 		pw.print('\n');
-		pw.print(c.getIDCliente());
+		pw.print("DNI/CIF : " + c.getIDCliente());
 		pw.print('\n');
-		if(c.getTarjetaBancaria().length()>=13 && c.getTarjetaBancaria().length()<=19) {
-			pw.print(c.getTarjetaBancaria());
-			pw.print('\n');
-		}
-		else {
-			pw.print("null\n");
-		}
-		pw.print(c.getTipo());
+		pw.print("TARJETA : "+c.getTarjetaBancaria());
+		pw.print('\n');
+
+		pw.print("TIPO : "+c.getTipo());
 		pw.print('\n'); 
-		if(c.getTelefono().length()==9) {
-			pw.print(c.getTelefono());
-			pw.print('\n');
-		}
-		else {
-			pw.print("null\n");
-		}
+		pw.print("TELEFONO : "+c.getTelefono());
+		pw.print('\n');
 		if(!c.getEmail().isEmpty() && emailCorrecto(c.getEmail())) {
-			pw.print(c.getEmail());
+			pw.print("EMAIL : "+c.getEmail());
 			pw.print('\n');
 		}
 		else {
-			pw.print("null\n");
+			pw.print("EMAIL : "+"null\n");
 		}
 		pw.print("-\n");
 	}
-	
+
 	public void Close() throws IOException  {
 		fw.close();
 		pw.close();
-		
 	}
-	
+
 	public static boolean emailCorrecto(String email) {
 		boolean encontrado=false;
 		for(int i=0; i<email.length()&&!encontrado;i++) {
@@ -68,12 +58,12 @@ public class AltaCliente {
 		}
 		return encontrado;
 	}
-	public static void main(String [ ] args) throws IOException {
-		Cliente client= new Cliente("x123","indivial","Ana","12345678901234","600600600","a@gmail.com");
-		Cliente client1= new Cliente("y224","indivial","Maria","12345678901234","600600600","a@gmail.com");
-		AltaCliente a = new AltaCliente();		
-		a.Alta(client);	
-		a.Alta(client1);
-		a.Close();
-	}
+//	public static void main(String [ ] args) throws IOException {
+//		Cliente client= new Cliente("x123","indivial","Ana","12345678901234","600600600","a@gmail.com");
+//		Cliente client1= new Cliente("y224","indivial","Maria","12345678901234","600600600","a@gmail.com");
+//		AltaCliente a = new AltaCliente();		
+//		a.Alta(client);	
+//		a.Alta(client1);
+//		a.Close();
+//	}
 }

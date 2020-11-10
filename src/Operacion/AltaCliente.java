@@ -36,7 +36,7 @@ public class AltaCliente {
 		pw.print('\n'); 
 		pw.print("TELEFONO : "+c.getTelefono());
 		pw.print('\n');
-		if(!c.getEmail().isEmpty() && emailCorrecto(c.getEmail())) {
+		if(!c.getEmail().isEmpty()) {
 			pw.print("EMAIL : "+c.getEmail());
 			pw.print('\n');
 		}
@@ -50,14 +50,7 @@ public class AltaCliente {
 		fw.close();
 		pw.close();
 	}
-
-	public static boolean emailCorrecto(String email) {
-		boolean encontrado=false;
-		for(int i=0; i<email.length()&&!encontrado;i++) {
-			encontrado=(email.charAt(i)=='@');
-		}
-		return encontrado;
-	}
+	
 //	public static void main(String [ ] args) throws IOException {
 //		Cliente client= new Cliente("x123","indivial","Ana","12345678901234","600600600","a@gmail.com");
 //		Cliente client1= new Cliente("y224","indivial","Maria","12345678901234","600600600","a@gmail.com");

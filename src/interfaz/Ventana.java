@@ -226,7 +226,7 @@ public class Ventana extends JFrame {
 		lblNombreYApellido.setBounds(10, 11, 131, 23);
 		panel_alta_cliente.add(lblNombreYApellido);
 
-		lblTarjeta = new JLabel("Tarjeta bancario(*) : ");
+		lblTarjeta = new JLabel("Tarjeta bancaria(*) : ");
 		lblTarjeta.setForeground(Color.WHITE);
 		lblTarjeta.setBounds(10, 110, 131, 23);
 		panel_alta_cliente.add(lblTarjeta);

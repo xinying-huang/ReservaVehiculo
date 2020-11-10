@@ -10,13 +10,13 @@ import EIF.*;
 import ILF.Vehiculo;
 
 public class AltaVehiculo {
-	ArrayList <Vehiculo>vehiculos;
-	int pos=0;
+//	ArrayList <Vehiculo>vehiculos;
+//	int pos=0;
 	File BBDD_Vehiculo;
 	FileWriter fw;
 	PrintWriter pw;
 	public AltaVehiculo(){
-		vehiculos=new ArrayList<Vehiculo>();
+//		vehiculos=new ArrayList<Vehiculo>();
 		BBDD_Vehiculo=new File("base de vehiculo");
 		try {
 			this.fw=new FileWriter(BBDD_Vehiculo);			
@@ -28,13 +28,10 @@ public class AltaVehiculo {
 //		System.out.print("Información del vehiculo\n\n");
 	}
 	public void Alta(Vehiculo v) {
-		if(v.getOpcionDeModelo().getCapacidadAforo()==0) {
-			v.getOpcionDeModelo().setCapacidadAforo(5);
-		}
 		if(v.getOpcionDeModelo().getCambio().isEmpty()) {
 			v.getOpcionDeModelo().setCambio("cambio manual");
 		}
-		vehiculos.add(v);
+//		vehiculos.add(v);
 		
 		pw.print("MATRICULA: "+v.getMatricula()+'\n');
 		pw.print("MARCA: "+v.getMarca()+'\n');
@@ -81,9 +78,9 @@ public class AltaVehiculo {
 		}
 		pw.close();
 	}
-	public ArrayList<Vehiculo> getDatosVehiculos(){
-		return vehiculos;
-	}
+//	public ArrayList<Vehiculo> getDatosVehiculos(){
+//		return vehiculos;
+//	}
 //	public static void main(String [ ] args) throws IOException {
 //		Gama gama=new Gama("Alta");
 //		OpcionesModeloCoche opciones=new OpcionesModeloCoche(true, "Cambio automótico",3 );

@@ -1,4 +1,4 @@
-package interfaz;
+package Interfaz;
 
 
 import java.awt.BorderLayout;
@@ -13,6 +13,8 @@ import EIF.Gama;
 import EIF.OpcionesModeloCoche;
 import ILF.Cliente;
 import ILF.Vehiculo;
+import Operacion.AltaCliente;
+import Operacion.AltaVehiculo;
 
 import javax.swing.JLabel;
 import java.awt.Color;

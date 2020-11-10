@@ -8,8 +8,8 @@ public class Vehiculo {
 	private int cantidad;
 	private String estado;
 	private OpcionesModeloCoche opcionDeModelo;
-	
-	
+
+
 	public Vehiculo(String matricula,String marca,String modelo,Gama gama,String estado,OpcionesModeloCoche opcionDeModelo) {
 		this.matricula=matricula;
 		this.marca=marca;
@@ -17,10 +17,10 @@ public class Vehiculo {
 		this.gama=gama;
 		this.estado=estado;
 		this.opcionDeModelo=opcionDeModelo;
-		
+
 	}
-	
-	
+
+
 	public String getMatricula() {
 		return matricula;
 	}
@@ -76,6 +76,6 @@ public class Vehiculo {
 	public void setOpcionDeModelo(OpcionesModeloCoche opcionDeModelo) {
 		this.opcionDeModelo = opcionDeModelo;
 	}
-	
+
 
 }

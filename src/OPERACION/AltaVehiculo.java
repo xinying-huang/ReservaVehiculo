@@ -1,4 +1,4 @@
-package Operacion;
+package OPERACION;
 
 import java.io.File;
 import java.io.FileWriter;

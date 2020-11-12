@@ -1,4 +1,4 @@
-package Interfaz;
+package INTERFAZ;
 
 
 import java.awt.BorderLayout;
@@ -13,8 +13,8 @@ import EIF.Gama;
 import EIF.OpcionesModeloCoche;
 import ILF.Cliente;
 import ILF.Vehiculo;
-import Operacion.AltaCliente;
-import Operacion.AltaVehiculo;
+import OPERACION.AltaCliente;
+import OPERACION.AltaVehiculo;
 
 import javax.swing.JLabel;
 import java.awt.Color;
@@ -152,6 +152,30 @@ public class Ventana extends JFrame {
 		lblReservaDeVehiculo.setBounds(307, 5, 335, 71);
 		contentPane.add(lblReservaDeVehiculo);
 
+		panel_exito = new JPanel();
+		panel_exito.setBackground(SystemColor.activeCaption);
+		panel_exito.setBounds(5, 93, 914, 431);
+		contentPane.add(panel_exito);
+		panel_exito.setLayout(null);
+
+		lblSeHaDado = new JLabel("¡¡¡¡ Se ha dado de alta con éxito !!!!");
+		lblSeHaDado.setForeground(Color.WHITE);
+		lblSeHaDado.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSeHaDado.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		lblSeHaDado.setBounds(179, 92, 540, 108);
+		panel_exito.add(lblSeHaDado);
+
+		JButton btnVolver_3 = new JButton("Volver");
+		btnVolver_3.setForeground(Color.WHITE);
+		btnVolver_3.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		btnVolver_3.setBorder(new LineBorder(Color.WHITE, 2, true));
+		btnVolver_3.setBackground(SystemColor.activeCaption);
+		btnVolver_3.setBounds(380, 211, 152, 40);
+		panel_exito.add(btnVolver_3);
+		panel_exito.setVisible(false);		
+		panel_exito.setVisible(false);
+		
+
 		panel_empleado = new JPanel();
 		panel_empleado.setBounds(5, 93, 914, 431);
 		contentPane.add(panel_empleado);
@@ -184,7 +208,7 @@ public class Ventana extends JFrame {
 		panel_empleado.add(btnVolver_2);
 		panel_empleado.setVisible(false);		
 		panel_empleado.setVisible(false);
-		
+
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -524,28 +548,6 @@ public class Ventana extends JFrame {
 			}
 		});//alta vehiculo->exito
 
-		panel_exito = new JPanel();
-		panel_exito.setBackground(SystemColor.activeCaption);
-		panel_exito.setBounds(5, 93, 914, 431);
-		contentPane.add(panel_exito);
-		panel_exito.setLayout(null);
-
-		lblSeHaDado = new JLabel("Se ha dado de alta con \u00E9xito !!!!");
-		lblSeHaDado.setForeground(Color.WHITE);
-		lblSeHaDado.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSeHaDado.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		lblSeHaDado.setBounds(197, 92, 522, 108);
-		panel_exito.add(lblSeHaDado);
-
-		JButton btnVolver_3 = new JButton("Volver");
-		btnVolver_3.setForeground(Color.WHITE);
-		btnVolver_3.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		btnVolver_3.setBorder(new LineBorder(Color.WHITE, 2, true));
-		btnVolver_3.setBackground(SystemColor.activeCaption);
-		btnVolver_3.setBounds(380, 211, 152, 40);
-		panel_exito.add(btnVolver_3);
-		panel_exito.setVisible(false);		
-
 		panel_cliente = new JPanel();
 		panel_cliente.setBounds(5, 93, 914, 431);
 		contentPane.add(panel_cliente);
@@ -603,7 +605,6 @@ public class Ventana extends JFrame {
 		//------------------------------------------------------------------------------
 		panel_inicio.setVisible(true);
 		panel_cliente.setVisible(false);
-		panel_exito.setVisible(false);
 		//------------------------------------------------------------------------------		
 		btnCliente.addMouseListener(new MouseAdapter() {
 			@Override
@@ -628,33 +629,6 @@ public class Ventana extends JFrame {
 				panel_empleado.setVisible(true);
 			}
 		});//inicio->empleado
-		btnVolver_3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// cliente				
-				textField.setText("");
-				textField_9.setText("");
-				textField_1.setText("");
-				textField_2.setText("");
-				textField_3.setText("");
-				comboBox.setSelectedIndex(0);
-				//vehiculo
-				textField_4.setText("");
-				textField_5.setText("");
-				textField_6.setText("");
-				comboBox_1.setSelectedIndex(0);
-				comboBox_3.setSelectedIndex(0);
-				rdbtnTechoSolar.setSelected(false);
-				comboBox_2.setSelectedIndex(0);
-				comboBox_4.setSelectedIndex(0);
-				panel_inicio.setVisible(true);
-				panel_cliente.setVisible(false);
-				panel_exito.setVisible(false);
-				panel_empleado.setVisible(false);
-				panel_alta_cliente.setVisible(false);
-				panel_alta_vehiculo.setVisible(false);
-			}
-		});//exito->inicio
 		btnVolver_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -816,5 +790,32 @@ public class Ventana extends JFrame {
 				panel_alta_vehiculo.setVisible(false);
 			}
 		});//empleado a inicio
+		btnVolver_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// cliente				
+				textField.setText("");
+				textField_9.setText("");
+				textField_1.setText("");
+				textField_2.setText("");
+				textField_3.setText("");
+				comboBox.setSelectedIndex(0);
+				//vehiculo
+				textField_4.setText("");
+				textField_5.setText("");
+				textField_6.setText("");
+				comboBox_1.setSelectedIndex(0);
+				comboBox_3.setSelectedIndex(0);
+				rdbtnTechoSolar.setSelected(false);
+				comboBox_2.setSelectedIndex(0);
+				comboBox_4.setSelectedIndex(0);
+				panel_inicio.setVisible(true);
+				panel_cliente.setVisible(false);
+				panel_exito.setVisible(false);
+				panel_empleado.setVisible(false);
+				panel_alta_cliente.setVisible(false);
+				panel_alta_vehiculo.setVisible(false);
+			}
+		});//exito->inicio
 	}
 }

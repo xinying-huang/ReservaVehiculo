@@ -763,7 +763,7 @@ public class Ventana extends JFrame {
 		contentPane.add(panel_exito);
 		panel_exito.setLayout(null);
 
-		lblSeHaDado = new JLabel("¡¡¡¡ Se ha dado de alta con éxito !!!!");
+		lblSeHaDado = new JLabel("ï¿½ï¿½ï¿½ï¿½ Se ha dado de alta con ï¿½xito !!!!");
 		lblSeHaDado.setForeground(Color.WHITE);
 		lblSeHaDado.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSeHaDado.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
@@ -975,15 +975,15 @@ public class Ventana extends JFrame {
 				else {
 					if(tarjetaBancaria.length()<13 || tarjetaBancaria.length()>19) {
 						tiptarjeta.setForeground(Color.RED);
-						tiptarjeta.setText("¡ Tarjeta inválida: el rango debe estar comprendido entre 13 y 19 !");
+						tiptarjeta.setText("ï¿½ Tarjeta invï¿½lida: el rango debe estar comprendido entre 13 y 19 !");
 					}
 					if(!email.isEmpty() && !emailCorrecto(email)) {
 						tipemail.setForeground(Color.RED);
-						tipemail.setText("¡ Email inválido: formato incorrecto!");
+						tipemail.setText("ï¿½ Email invï¿½lido: formato incorrecto!");
 					}
 					if(telefono.length()!=9) {
 						tiptelefono.setForeground(Color.RED);
-						tiptelefono.setText("¡ Teléfono inválido: debe contener 9 dígitos !");
+						tiptelefono.setText("ï¿½ Telï¿½fono invï¿½lido: debe contener 9 dï¿½gitos !");
 					}
 					if(telefono.length()==9 && (tarjetaBancaria.length()>=13 && tarjetaBancaria.length()<=19) && (email.isEmpty() || (!email.isEmpty() && emailCorrecto(email)))) {
 						Cliente c = new Cliente(IDCliente, tipo, nombre, tarjetaBancaria, telefono, email);

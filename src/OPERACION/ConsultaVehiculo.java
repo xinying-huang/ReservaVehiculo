@@ -56,7 +56,7 @@ public class ConsultaVehiculo {
 		String res="";
 		for(int i = 0; i < filtro3.size(); i++)
 		{
-			res=res +"Matricula" + filtro3.get(i).getMatricula()
+			res=res +"Matricula : " + filtro3.get(i).getMatricula()
 					+"\nMarca : "+filtro3.get(i).getMarca()
 					+"\nModelo : "+filtro3.get(i).getModelo()
 					+"\nGama : "+filtro3.get(i).getGama().getClasificacion()

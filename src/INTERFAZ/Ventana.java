@@ -261,7 +261,7 @@ public class Ventana extends JFrame {
 
 
 
-		aviso_gama = new JLabel("\u00A1\u00A1\u00A1Debe seleccionar una opci\u00F3n para ir a la p\u00E1gina sigiuente!!!");
+		aviso_gama = new JLabel("¡¡¡Debe seleccionar una opción para ir a la página sigiuente!!!");
 		aviso_gama.setHorizontalAlignment(SwingConstants.CENTER);
 		aviso_gama.setForeground(Color.RED);
 		aviso_gama.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -368,7 +368,7 @@ public class Ventana extends JFrame {
 		btnConsultar.setBounds(10, 346, 894, 23);
 		panel_consulta_marca.add(btnConsultar);
 
-		aviso_marca = new JLabel("\u00A1\u00A1\u00A1Debe seleccionar una opci\u00F3n para ir a la p\u00E1gina sigiuente!!!");
+		aviso_marca = new JLabel("¡¡¡Debe seleccionar una opción para ir a la página sigiuente!!!");
 		aviso_marca.setHorizontalAlignment(SwingConstants.CENTER);
 		aviso_marca.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		aviso_marca.setForeground(Color.RED);
@@ -478,7 +478,7 @@ public class Ventana extends JFrame {
 
 
 
-		aviso_modelo = new JLabel("\u00A1\u00A1\u00A1Debe seleccionar una opci\u00F3n para ir a la p\u00E1gina sigiuente!!!");
+		aviso_modelo = new JLabel("¡¡¡Debe seleccionar una opción para ir a la página sigiuente!!!");
 		aviso_modelo.setHorizontalAlignment(SwingConstants.CENTER);
 		aviso_modelo.setForeground(Color.RED);
 		aviso_modelo.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -551,7 +551,7 @@ public class Ventana extends JFrame {
 		rdbtnCadenaDeNieve.setBounds(43, 69, 183, 26);
 		panel_1.add(rdbtnCadenaDeNieve);
 
-		JRadioButton rdbtnAsientoDeBeb = new JRadioButton("Asiento de beb\u00E9");
+		JRadioButton rdbtnAsientoDeBeb = new JRadioButton("Asiento de bebé");
 		rdbtnAsientoDeBeb.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		rdbtnAsientoDeBeb.setBackground(SystemColor.activeCaption);
 		rdbtnAsientoDeBeb.setForeground(Color.WHITE);
@@ -1358,8 +1358,8 @@ public class Ventana extends JFrame {
 
 					String res = cv.consulta(op2, op3, op1);
 					if(res.isEmpty()) {
-						resultado.setText("No se han encontrados resultados para "+ op1+" ; "+op2+" ; "+op3 +" \r\n" + 
-								"Lo sentimos, no hemos encontrado ningún resultado para tu búsqueda.");
+						resultado.setText("No se han encontrado resultados para gama "+ op1+" ; marca "+op2+" ; modelo "+op3 +" \r\n" + 
+								"Lo sentimos, no hemos encontrado ningún resultado para su búsqueda.");
 					}
 					else {
 						resultado.setText(resultado.getText() + res);

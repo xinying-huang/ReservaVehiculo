@@ -16,18 +16,18 @@ public class ConsultaVehiculo {
 
 	public void addBasededato() {
 		//------v1
-		Gama gama=new Gama("Alta");
-		OpcionesModeloCoche opciones=new OpcionesModeloCoche(true, "Cambio automático",3 );
+		Gama gama=new Gama("alto");
+		OpcionesModeloCoche opciones=new OpcionesModeloCoche(true, "Cambio automático",7 );
 		Vehiculo vehicle= new Vehiculo("0000 ABC","Audi","A5",gama,"disponible",opciones);
 		//------v2
-		Gama gama2=new Gama("Media");
+		Gama gama2=new Gama("medio");
 		OpcionesModeloCoche opciones2=new OpcionesModeloCoche(false, "cambio manual",5);
 		Vehiculo vehicle2= new Vehiculo("1111 ABC","SEAT","S1",gama2,"disponible",opciones2);
 		//------v3
 		OpcionesModeloCoche opciones3=new OpcionesModeloCoche(true, "cambio automático",2);
 		Vehiculo vehicle3= new Vehiculo("2222 ABC","SEAT","S1",gama2,"en mantenimiento",opciones3);
 		//------v4
-		Gama gama4=new Gama("Baja");
+		Gama gama4=new Gama("bajo");
 		OpcionesModeloCoche opciones4=new OpcionesModeloCoche(true, "cambio manual",2);
 		Vehiculo vehicle4= new Vehiculo("3333 ABC","BMW","X3",gama4,"estropeado",opciones4);
 		//------

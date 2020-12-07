@@ -1,0 +1,18 @@
+MATRICULA: 13qq
+MARCA: Audi
+MODELO: A5
+GAMA: alto
+ESTADO: disponible
+TECHO SOLAR: false
+CAMBIO DE MARCHA: cambio manual
+CAPACIDAD DE AFORO: 5
+-
+MATRICULA: 777
+MARCA: Audi
+MODELO: A5
+GAMA: alto
+ESTADO: disponible
+TECHO SOLAR: true
+CAMBIO DE MARCHA: cambio manual
+CAPACIDAD DE AFORO: 5
+-

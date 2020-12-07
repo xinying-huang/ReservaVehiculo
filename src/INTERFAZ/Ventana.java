@@ -116,7 +116,7 @@ public class Ventana extends JFrame {
 	private JComboBox comboBox_6;
 	private JPanel panel_consulta_gama;
 	private JButton button_9;
-	private JButton button_10;
+	private JButton volver_gama_cliente;
 	private JPanel panel_consulta_modelo;
 	private JButton button_14;
 	private JButton button_15;
@@ -141,6 +141,11 @@ public class Ventana extends JFrame {
 	private JRadioButton rdbtnMarca;
 	private JRadioButton rdbtnMarca_1;
 	private JRadioButton rdbtnMarca_2;
+	static ConsultaVehiculo cv;
+	private JPanel panel_4;
+	private JPanel panel_5;
+	private JButton volver_gama_empleado;
+	private JButton btnNewButton_1;
 
 	public static boolean emailCorrecto(String email) {
 		boolean encontrado=false;
@@ -160,6 +165,8 @@ public class Ventana extends JFrame {
 					frame.setVisible(true);
 					ac=new AltaCliente();	
 					av=new AltaVehiculo();
+					cv=new ConsultaVehiculo();
+					cv.addBasededato();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -192,6 +199,7 @@ public class Ventana extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		ButtonGroup bg_gama = new ButtonGroup();
 		lblGrupo = new JLabel("Grupo 06");
 		lblGrupo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		lblGrupo.setForeground(Color.WHITE);
@@ -203,7 +211,246 @@ public class Ventana extends JFrame {
 		lblReservaDeVehiculo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		lblReservaDeVehiculo.setBounds(307, 5, 335, 71);
 		contentPane.add(lblReservaDeVehiculo);
-		ButtonGroup bg_modelo = new ButtonGroup();
+		ButtonGroup bg_modelo = new ButtonGroup();		
+		ButtonGroup bg_marca = new ButtonGroup();
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(5, 91, 914, 379);
+		contentPane.add(scrollPane);
+		scrollPane.setVisible(false);
+
+
+
+
+		JTextArea resultado = new JTextArea();
+		resultado.setFont(new Font("Monospaced", Font.PLAIN, 15));
+		resultado.setForeground(Color.WHITE);
+		resultado.setEditable(false);
+		resultado.setBackground(SystemColor.activeCaption);
+		resultado.setBounds(5, 93, 914, 377);
+		
+		resultado.setVisible(false);
+		scrollPane.setBackground(SystemColor.activeCaption);
+		
+		scrollPane.setViewportView(resultado);
+
+
+		panel_consulta_gama = new JPanel();
+		panel_consulta_gama.setBackground(SystemColor.activeCaption);
+		panel_consulta_gama.setBounds(5, 93, 914, 431);
+		contentPane.add(panel_consulta_gama);
+		panel_consulta_gama.setLayout(null);
+		panel_consulta_gama.setVisible(false);
+
+		button_9 = new JButton("Sigiente");
+
+		button_9.setForeground(Color.WHITE);
+		button_9.setBorder(new LineBorder(Color.WHITE, 2, true));
+		button_9.setBackground(SystemColor.activeCaption);
+		button_9.setBounds(10, 345, 894, 23);
+		panel_consulta_gama.add(button_9);
+
+		volver_gama_cliente = new JButton("Volver");
+		volver_gama_cliente.setVisible(false);
+
+		volver_gama_cliente.setForeground(Color.WHITE);
+		volver_gama_cliente.setBorder(new LineBorder(Color.WHITE, 2, true));
+		volver_gama_cliente.setBackground(SystemColor.activeCaption);
+		volver_gama_cliente.setBounds(10, 384, 894, 23);
+		panel_consulta_gama.add(volver_gama_cliente);
+
+
+
+		aviso_gama = new JLabel("\u00A1\u00A1\u00A1Debe seleccionar una opci\u00F3n para ir a la p\u00E1gina sigiuente!!!");
+		aviso_gama.setHorizontalAlignment(SwingConstants.CENTER);
+		aviso_gama.setForeground(Color.RED);
+		aviso_gama.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		aviso_gama.setBounds(27, 252, 768, 36);
+		panel_consulta_gama.add(aviso_gama);
+
+		JPanel panel_3 = new JPanel();
+		panel_3.setForeground(Color.WHITE);
+		panel_3.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Gama", TitledBorder.CENTER, TitledBorder.TOP, null, Color.WHITE));
+		panel_3.setBackground(SystemColor.activeCaption);
+		panel_3.setBounds(230, 62, 335, 179);
+		panel_consulta_gama.add(panel_3);
+		panel_3.setLayout(null);
+		rdbtnBaja = new JRadioButton("bajo");
+		rdbtnBaja.setBounds(34, 30, 269, 41);
+		panel_3.add(rdbtnBaja);
+		bg_gama.add(rdbtnBaja);
+		rdbtnMedia = new JRadioButton("medio");
+		rdbtnMedia.setBounds(34, 74, 269, 39);
+		panel_3.add(rdbtnMedia);
+		bg_gama.add(rdbtnMedia);
+		rdbtnAlta = new JRadioButton("alto");
+		rdbtnAlta.setBounds(34, 116, 269, 41);
+		panel_3.add(rdbtnAlta);
+		bg_gama.add(rdbtnAlta);
+
+		volver_gama_empleado = new JButton("Volver");
+
+		volver_gama_empleado.setVisible(false);
+		volver_gama_empleado.setForeground(Color.WHITE);
+		volver_gama_empleado.setBorder(new LineBorder(Color.WHITE, 2, true));
+		volver_gama_empleado.setBackground(SystemColor.activeCaption);
+		volver_gama_empleado.setBounds(10, 384, 894, 23);
+		panel_consulta_gama.add(volver_gama_empleado);
+		aviso_gama.setVisible(false);
+
+
+
+		panel_empleado = new JPanel();
+		panel_empleado.setBounds(5, 93, 914, 431);
+		contentPane.add(panel_empleado);
+		panel_empleado.setLayout(null);
+		panel_empleado.setBackground(SystemColor.activeCaption);
+
+		button = new JButton("Dar alta cliente");
+		button.setForeground(Color.WHITE);
+
+		button.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		button.setBackground(SystemColor.activeCaption);
+		button.setBounds(96, 128, 234, 126);
+		button.setBorder(new LineBorder(Color.WHITE, 2, true));
+		panel_empleado.add(button);
+
+		btnDarAltaVehiculo = new JButton("Dar alta vehiculo");
+		btnDarAltaVehiculo.setForeground(Color.WHITE);
+		btnDarAltaVehiculo.setBorder(new LineBorder(Color.WHITE, 2, true));
+
+		btnDarAltaVehiculo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		btnDarAltaVehiculo.setBackground(SystemColor.activeCaption);
+		btnDarAltaVehiculo.setBounds(340, 128, 243, 126);
+		panel_empleado.add(btnDarAltaVehiculo);
+
+		btnVolver_2 = new JButton("Volver");
+		btnVolver_2.setForeground(Color.WHITE);
+		btnVolver_2.setBackground(SystemColor.activeCaption);
+		btnVolver_2.setBorder(new LineBorder(Color.WHITE, 2, true));
+		btnVolver_2.setBounds(10, 385, 894, 23);
+		panel_empleado.add(btnVolver_2);
+
+		JButton btnConsultarVehiculo = new JButton("Consultar vehiculo");
+
+		btnConsultarVehiculo.setForeground(Color.WHITE);
+		btnConsultarVehiculo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		btnConsultarVehiculo.setBorder(new LineBorder(Color.WHITE, 2, true));
+		btnConsultarVehiculo.setBackground(SystemColor.activeCaption);
+		btnConsultarVehiculo.setBounds(593, 128, 234, 126);
+		panel_empleado.add(btnConsultarVehiculo);
+		panel_empleado.setVisible(false);		
+		panel_empleado.setVisible(false);
+
+
+
+		panel_consulta_marca = new JPanel();
+		panel_consulta_marca.setBackground(SystemColor.activeCaption);
+		panel_consulta_marca.setBounds(5, 93, 914, 431);
+		contentPane.add(panel_consulta_marca);
+		panel_consulta_marca.setLayout(null);
+		panel_consulta_marca.setVisible(false);
+		panel_consulta_marca.setVisible(false);
+
+		button_1 = new JButton("Volver");
+
+		button_1.setForeground(Color.WHITE);
+		button_1.setBorder(new LineBorder(Color.WHITE, 2, true));
+		button_1.setBackground(SystemColor.activeCaption);
+		button_1.setBounds(10, 385, 894, 23);
+		panel_consulta_marca.add(button_1);
+
+		btnConsultar = new JButton("Sigiente");
+
+		btnConsultar.setForeground(Color.WHITE);
+		btnConsultar.setBorder(new LineBorder(Color.WHITE, 2, true));
+		btnConsultar.setBackground(SystemColor.activeCaption);
+		btnConsultar.setBounds(10, 346, 894, 23);
+		panel_consulta_marca.add(btnConsultar);
+
+		aviso_marca = new JLabel("\u00A1\u00A1\u00A1Debe seleccionar una opci\u00F3n para ir a la p\u00E1gina sigiuente!!!");
+		aviso_marca.setHorizontalAlignment(SwingConstants.CENTER);
+		aviso_marca.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		aviso_marca.setForeground(Color.RED);
+		aviso_marca.setBounds(47, 252, 768, 36);
+		panel_consulta_marca.add(aviso_marca);
+
+		op_marca = new JLabel("Opciones elegidos : ");
+		op_marca.setForeground(Color.WHITE);
+		op_marca.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		op_marca.setBackground(SystemColor.activeCaption);
+		op_marca.setBounds(10, 26, 805, 36);
+		panel_consulta_marca.add(op_marca);
+
+		panel_5 = new JPanel();
+		panel_5.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Marca", TitledBorder.CENTER, TitledBorder.TOP, null, Color.WHITE));
+		panel_5.setBackground(SystemColor.activeCaption);
+		panel_5.setBounds(234, 71, 328, 170);
+		panel_consulta_marca.add(panel_5);
+		panel_5.setLayout(null);
+		rdbtnMarca = new JRadioButton("Audi");
+		rdbtnMarca.setBounds(35, 66, 261, 36);
+		panel_5.add(rdbtnMarca);
+		bg_marca.add(rdbtnMarca);
+		rdbtnMarca_1 = new JRadioButton("BMW");
+		rdbtnMarca_1.setBounds(35, 105, 261, 36);
+		panel_5.add(rdbtnMarca_1);
+		bg_marca.add(rdbtnMarca_1);
+		rdbtnMarca_2 = new JRadioButton("SEAT");
+		rdbtnMarca_2.setBounds(35, 27, 261, 36);
+		panel_5.add(rdbtnMarca_2);
+		bg_marca.add(rdbtnMarca_2);
+		aviso_marca.setVisible(false);
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(!rdbtnMarca.isSelected() && !rdbtnMarca_1.isSelected() && !rdbtnMarca_2.isSelected()) {
+					aviso_marca.setVisible(true);
+				}
+				else {
+
+					if(rdbtnMarca.isSelected()) {
+						op2=rdbtnMarca.getText();
+					}
+					else if(rdbtnMarca_1.isSelected()) {
+						op2=rdbtnMarca_1.getText();
+					}
+					else {
+						op2=rdbtnMarca_2.getText();
+					}
+					op_modelo.setText(op_marca.getText() + " ; " + op2);
+					aviso_marca.setVisible(false);
+					panel_inicio.setVisible(false);
+					panel_cliente.setVisible(false);
+					panel_exito.setVisible(false);
+					panel_empleado.setVisible(false);
+					panel_alta_cliente.setVisible(false);
+					panel_alta_vehiculo.setVisible(false);	
+					panel_reserva.setVisible(false);
+					panel_elegir.setVisible(false);
+					panel_consulta_gama.setVisible(false);
+					panel_consulta_marca.setVisible(false);
+					panel_consulta_modelo.setVisible(true);
+				}
+			}
+		});//marca->modelo
+		button_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				aviso_marca.setVisible(false);
+				panel_inicio.setVisible(false);
+				panel_cliente.setVisible(false);
+				panel_exito.setVisible(false);
+				panel_empleado.setVisible(false);
+				panel_alta_cliente.setVisible(false);
+				panel_alta_vehiculo.setVisible(false);	
+				panel_reserva.setVisible(false);
+				panel_elegir.setVisible(false);
+				panel_consulta_gama.setVisible(true);
+				panel_consulta_marca.setVisible(false);
+				panel_consulta_modelo.setVisible(false);
+			}
+		});//marca->gama
 
 
 		panel_consulta_modelo = new JPanel();
@@ -244,140 +491,27 @@ public class Ventana extends JFrame {
 		op_modelo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		op_modelo.setBounds(10, 26, 805, 36);
 		panel_consulta_modelo.add(op_modelo);
-		rdbtnModelo = new JRadioButton("S1");
-		rdbtnModelo.setBounds(268, 103, 261, 36);
-		panel_consulta_modelo.add(rdbtnModelo);
-		bg_modelo.add(rdbtnModelo);
+
+		panel_4 = new JPanel();
+		panel_4.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Modelo", TitledBorder.CENTER, TitledBorder.TOP, null, Color.WHITE));
+		panel_4.setBackground(SystemColor.activeCaption);
+		panel_4.setBounds(229, 79, 343, 162);
+		panel_consulta_modelo.add(panel_4);
+		panel_4.setLayout(null);
 		rdbtnModelo_1 = new JRadioButton("A5");
-		rdbtnModelo_1.setBounds(268, 140, 261, 36);
-		panel_consulta_modelo.add(rdbtnModelo_1);
+		rdbtnModelo_1.setBounds(32, 21, 283, 39);
+		panel_4.add(rdbtnModelo_1);
 		bg_modelo.add(rdbtnModelo_1);
+		rdbtnModelo = new JRadioButton("S1");
+		rdbtnModelo.setBounds(32, 63, 283, 38);
+		panel_4.add(rdbtnModelo);
+		bg_modelo.add(rdbtnModelo);
 		rdbtnModelo_2 = new JRadioButton("X3");
-		rdbtnModelo_2.setBounds(268, 177, 261, 36);
-		panel_consulta_modelo.add(rdbtnModelo_2);
+		rdbtnModelo_2.setBounds(32, 104, 283, 38);
+		panel_4.add(rdbtnModelo_2);
 		bg_modelo.add(rdbtnModelo_2);
 		aviso_modelo.setVisible(false);
-		
 
-		panel_consulta_marca = new JPanel();
-		panel_consulta_marca.setBackground(SystemColor.activeCaption);
-		panel_consulta_marca.setBounds(5, 93, 914, 431);
-		contentPane.add(panel_consulta_marca);
-		panel_consulta_marca.setLayout(null);
-		panel_consulta_marca.setVisible(false);
-		panel_consulta_marca.setVisible(false);
-
-		button_1 = new JButton("Volver");
-
-		button_1.setForeground(Color.WHITE);
-		button_1.setBorder(new LineBorder(Color.WHITE, 2, true));
-		button_1.setBackground(SystemColor.activeCaption);
-		button_1.setBounds(10, 385, 894, 23);
-		panel_consulta_marca.add(button_1);
-
-		btnConsultar = new JButton("Sigiente");
-
-		btnConsultar.setForeground(Color.WHITE);
-		btnConsultar.setBorder(new LineBorder(Color.WHITE, 2, true));
-		btnConsultar.setBackground(SystemColor.activeCaption);
-		btnConsultar.setBounds(10, 346, 894, 23);
-		panel_consulta_marca.add(btnConsultar);
-
-		aviso_marca = new JLabel("\u00A1\u00A1\u00A1Debe seleccionar una opci\u00F3n para ir a la p\u00E1gina sigiuente!!!");
-		aviso_marca.setHorizontalAlignment(SwingConstants.CENTER);
-		aviso_marca.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		aviso_marca.setForeground(Color.RED);
-		aviso_marca.setBounds(47, 252, 768, 36);
-		panel_consulta_marca.add(aviso_marca);
-
-		op_marca = new JLabel("Opciones elegidos : ");
-		op_marca.setForeground(Color.WHITE);
-		op_marca.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		op_marca.setBackground(SystemColor.activeCaption);
-		op_marca.setBounds(10, 26, 805, 36);
-		panel_consulta_marca.add(op_marca);
-
-		ButtonGroup bg_marca = new ButtonGroup();
-		rdbtnMarca = new JRadioButton("Audi");
-		rdbtnMarca.setBounds(268, 103, 261, 36);
-		panel_consulta_marca.add(rdbtnMarca);
-		bg_marca.add(rdbtnMarca);
-		rdbtnMarca_1 = new JRadioButton("BMW");
-		rdbtnMarca_1.setBounds(268, 140, 261, 36);
-		panel_consulta_marca.add(rdbtnMarca_1);
-		bg_marca.add(rdbtnMarca_1);
-		rdbtnMarca_2 = new JRadioButton("SEAT");
-		rdbtnMarca_2.setBounds(268, 177, 261, 36);
-		panel_consulta_marca.add(rdbtnMarca_2);
-		bg_marca.add(rdbtnMarca_2);
-		aviso_marca.setVisible(false);
-		
-
-
-
-		panel_consulta_gama = new JPanel();
-		panel_consulta_gama.setBackground(SystemColor.activeCaption);
-		panel_consulta_gama.setBounds(5, 93, 914, 431);
-		contentPane.add(panel_consulta_gama);
-		panel_consulta_gama.setLayout(null);
-		panel_consulta_gama.setVisible(false);
-
-		button_9 = new JButton("Sigiente");
-
-		button_9.setForeground(Color.WHITE);
-		button_9.setBorder(new LineBorder(Color.WHITE, 2, true));
-		button_9.setBackground(SystemColor.activeCaption);
-		button_9.setBounds(10, 345, 894, 23);
-		panel_consulta_gama.add(button_9);
-
-		button_10 = new JButton("Volver");
-
-		button_10.setForeground(Color.WHITE);
-		button_10.setBorder(new LineBorder(Color.WHITE, 2, true));
-		button_10.setBackground(SystemColor.activeCaption);
-		button_10.setBounds(10, 384, 894, 23);
-		panel_consulta_gama.add(button_10);
-
-
-
-		aviso_gama = new JLabel("\u00A1\u00A1\u00A1Debe seleccionar una opci\u00F3n para ir a la p\u00E1gina sigiuente!!!");
-		aviso_gama.setHorizontalAlignment(SwingConstants.CENTER);
-		aviso_gama.setForeground(Color.RED);
-		aviso_gama.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		aviso_gama.setBounds(27, 252, 768, 36);
-		panel_consulta_gama.add(aviso_gama);
-		ButtonGroup bg_gama = new ButtonGroup();
-		rdbtnBaja = new JRadioButton("Baja");
-		rdbtnBaja.setBounds(268, 103, 261, 36);
-		panel_consulta_gama.add(rdbtnBaja);
-		bg_gama.add(rdbtnBaja);
-		rdbtnMedia = new JRadioButton("Media");
-		rdbtnMedia.setBounds(268, 140, 261, 36);
-		panel_consulta_gama.add(rdbtnMedia);
-		bg_gama.add(rdbtnMedia);
-		rdbtnAlta = new JRadioButton("Alta");
-		rdbtnAlta.setBounds(268, 177, 261, 36);
-		panel_consulta_gama.add(rdbtnAlta);
-		bg_gama.add(rdbtnAlta);
-		aviso_gama.setVisible(false);
-
-		JTextArea resultado = new JTextArea();
-		resultado.setFont(new Font("Monospaced", Font.PLAIN, 15));
-		resultado.setForeground(Color.WHITE);
-		resultado.setEditable(false);
-		resultado.setBackground(SystemColor.activeCaption);
-		resultado.setBounds(5, 93, 914, 377);
-		contentPane.add(resultado);
-		resultado.setVisible(false);
-
-		button_4 = new JButton("Volver");
-
-		button_4.setBounds(14, 476, 894, 23);
-		contentPane.add(button_4);
-		button_4.setForeground(Color.WHITE);
-		button_4.setBorder(new LineBorder(Color.WHITE, 2, true));
-		button_4.setBackground(SystemColor.activeCaption);
-		button_4.setVisible(false);
 
 		panel_elegir = new JPanel();
 		panel_elegir.setBackground(SystemColor.activeCaption);
@@ -460,10 +594,12 @@ public class Ventana extends JFrame {
 		panel_2.add(label_1);
 
 		comboBox_5 = new JComboBox();
+		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"", "cambio manual", "cambio autom\u00E1tico"}));
 		comboBox_5.setBounds(175, 93, 234, 22);
 		panel_2.add(comboBox_5);
 
 		comboBox_6 = new JComboBox();
+		comboBox_6.setModel(new DefaultComboBoxModel(new String[] {"", "2", "5", "7"}));
 		comboBox_6.setBounds(175, 147, 234, 22);
 		panel_2.add(comboBox_6);
 		button_2.addMouseListener(new MouseAdapter() {
@@ -480,98 +616,6 @@ public class Ventana extends JFrame {
 				panel_elegir.setVisible(false);
 			}
 		});//tarifa->reserva
-
-		panel_cliente = new JPanel();
-		panel_cliente.setBounds(5, 93, 914, 431);
-		contentPane.add(panel_cliente);
-		panel_cliente.setLayout(null);
-		panel_cliente.setBackground(SystemColor.activeCaption);
-
-		btnDarAlta = new JButton("Dar alta cliente");
-		btnDarAlta.setForeground(Color.WHITE);
-
-		btnDarAlta.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnDarAlta.setBackground(SystemColor.activeCaption);
-		btnDarAlta.setBounds(96, 128, 234, 126);
-		btnDarAlta.setBorder(new LineBorder(Color.WHITE, 2, true));
-		panel_cliente.add(btnDarAlta);
-
-		btnReservaVehiculo = new JButton("Reserva vehiculo");
-		btnReservaVehiculo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				panel_inicio.setVisible(false);
-				panel_cliente.setVisible(false);
-				panel_exito.setVisible(false);
-				panel_empleado.setVisible(false);
-				panel_alta_cliente.setVisible(false);
-				panel_alta_vehiculo.setVisible(false);
-				panel_consulta_marca.setVisible(false);
-				panel_reserva.setVisible(true);
-				panel_elegir.setVisible(false);
-			}
-		});// cliente->reserva
-		btnReservaVehiculo.setForeground(Color.WHITE);
-		btnReservaVehiculo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnReservaVehiculo.setBackground(SystemColor.activeCaption);
-		btnReservaVehiculo.setBounds(564, 128, 261, 126);
-		btnReservaVehiculo.setBorder(new LineBorder(Color.WHITE, 2, true));
-		panel_cliente.add(btnReservaVehiculo);
-
-		btnVolver_1 = new JButton("Volver");
-		btnVolver_1.setForeground(Color.WHITE);
-		btnVolver_1.setBackground(SystemColor.activeCaption);
-		btnVolver_1.setBorder(new LineBorder(Color.WHITE, 2, true));
-
-		btnVolver_1.setBounds(10, 385, 894, 23);
-		panel_cliente.add(btnVolver_1);	
-		panel_cliente.setVisible(false);
-
-		btnDarAlta.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				panel_inicio.setVisible(false);
-				panel_cliente.setVisible(false);
-				panel_exito.setVisible(false);
-				panel_empleado.setVisible(false);
-				panel_alta_cliente.setVisible(true);
-				panel_alta_vehiculo.setVisible(false);
-				btnVolver_cliente.setVisible(true);
-			}
-		});//cliente->alta cliente
-
-		panel_reserva = new JPanel();
-		panel_reserva.setBackground(SystemColor.activeCaption);
-		panel_reserva.setBounds(5, 93, 914, 431);
-		contentPane.add(panel_reserva);
-		panel_reserva.setLayout(null);
-		panel_reserva.setVisible(false);
-
-		JButton btnDespliegueTarifa = new JButton("Opciones");
-
-		btnDespliegueTarifa.setForeground(Color.WHITE);
-		btnDespliegueTarifa.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnDespliegueTarifa.setBorder(new LineBorder(Color.WHITE, 2, true));
-		btnDespliegueTarifa.setBackground(SystemColor.activeCaption);
-		btnDespliegueTarifa.setBounds(143, 120, 211, 126);
-		panel_reserva.add(btnDespliegueTarifa);
-
-		JButton btnConsultaVehiculo = new JButton("Consultar vehiculo");
-
-		btnConsultaVehiculo.setForeground(Color.WHITE);
-		btnConsultaVehiculo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnConsultaVehiculo.setBorder(new LineBorder(Color.WHITE, 2, true));
-		btnConsultaVehiculo.setBackground(SystemColor.activeCaption);
-		btnConsultaVehiculo.setBounds(517, 120, 222, 126);
-		panel_reserva.add(btnConsultaVehiculo);
-
-		button_3 = new JButton("Volver");
-
-		button_3.setForeground(Color.WHITE);
-		button_3.setBorder(new LineBorder(Color.WHITE, 2, true));
-		button_3.setBackground(SystemColor.activeCaption);
-		button_3.setBounds(10, 385, 894, 23);
-		panel_reserva.add(button_3);
 
 
 		panel_alta_vehiculo = new JPanel();
@@ -691,7 +735,6 @@ public class Ventana extends JFrame {
 		panel_alta_vehiculo.add(lblCampos_1);
 		panel_alta_vehiculo.setVisible(false);				
 		panel_alta_vehiculo.setVisible(false);
-
 		btnDarDeAlta.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -715,6 +758,7 @@ public class Ventana extends JFrame {
 				else {					
 					Vehiculo v = new Vehiculo(matricula, marca, modelo, gama, estado, opciones);
 					av.Alta(v);
+					cv.addArray(v);
 					lblCampos_1.setForeground(Color.WHITE);
 					panel_inicio.setVisible(false);
 					panel_cliente.setVisible(false);
@@ -757,13 +801,114 @@ public class Ventana extends JFrame {
 			}
 		});//alta vehiculo->empleado
 
+		button_4 = new JButton("Volver");
+
+		button_4.setBounds(14, 476, 894, 23);
+		contentPane.add(button_4);
+		button_4.setForeground(Color.WHITE);
+		button_4.setBorder(new LineBorder(Color.WHITE, 2, true));
+		button_4.setBackground(SystemColor.activeCaption);
+		button_4.setVisible(false);
+
+		panel_cliente = new JPanel();
+		panel_cliente.setBounds(5, 93, 914, 431);
+		contentPane.add(panel_cliente);
+		panel_cliente.setLayout(null);
+		panel_cliente.setBackground(SystemColor.activeCaption);
+
+		btnDarAlta = new JButton("Dar alta cliente");
+		btnDarAlta.setForeground(Color.WHITE);
+
+		btnDarAlta.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		btnDarAlta.setBackground(SystemColor.activeCaption);
+		btnDarAlta.setBounds(96, 128, 234, 126);
+		btnDarAlta.setBorder(new LineBorder(Color.WHITE, 2, true));
+		panel_cliente.add(btnDarAlta);
+
+		btnReservaVehiculo = new JButton("Reserva vehiculo");
+		btnReservaVehiculo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel_inicio.setVisible(false);
+				panel_cliente.setVisible(false);
+				panel_exito.setVisible(false);
+				panel_empleado.setVisible(false);
+				panel_alta_cliente.setVisible(false);
+				panel_alta_vehiculo.setVisible(false);
+				panel_consulta_marca.setVisible(false);
+				panel_reserva.setVisible(true);
+				panel_elegir.setVisible(false);
+			}
+		});// cliente->reserva
+		btnReservaVehiculo.setForeground(Color.WHITE);
+		btnReservaVehiculo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		btnReservaVehiculo.setBackground(SystemColor.activeCaption);
+		btnReservaVehiculo.setBounds(564, 128, 261, 126);
+		btnReservaVehiculo.setBorder(new LineBorder(Color.WHITE, 2, true));
+		panel_cliente.add(btnReservaVehiculo);
+
+		btnVolver_1 = new JButton("Volver");
+		btnVolver_1.setForeground(Color.WHITE);
+		btnVolver_1.setBackground(SystemColor.activeCaption);
+		btnVolver_1.setBorder(new LineBorder(Color.WHITE, 2, true));
+
+		btnVolver_1.setBounds(10, 385, 894, 23);
+		panel_cliente.add(btnVolver_1);	
+		panel_cliente.setVisible(false);
+
+		btnDarAlta.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel_inicio.setVisible(false);
+				panel_cliente.setVisible(false);
+				panel_exito.setVisible(false);
+				panel_empleado.setVisible(false);
+				panel_alta_cliente.setVisible(true);
+				panel_alta_vehiculo.setVisible(false);
+				btnVolver_cliente.setVisible(true);
+			}
+		});//cliente->alta cliente
+
+		panel_reserva = new JPanel();
+		panel_reserva.setBackground(SystemColor.activeCaption);
+		panel_reserva.setBounds(5, 93, 914, 431);
+		contentPane.add(panel_reserva);
+		panel_reserva.setLayout(null);
+		panel_reserva.setVisible(false);
+
+		JButton btnDespliegueTarifa = new JButton("Opciones");
+
+		btnDespliegueTarifa.setForeground(Color.WHITE);
+		btnDespliegueTarifa.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		btnDespliegueTarifa.setBorder(new LineBorder(Color.WHITE, 2, true));
+		btnDespliegueTarifa.setBackground(SystemColor.activeCaption);
+		btnDespliegueTarifa.setBounds(143, 120, 211, 126);
+		panel_reserva.add(btnDespliegueTarifa);
+
+		JButton btnConsultaVehiculo = new JButton("Consultar vehiculo");
+
+		btnConsultaVehiculo.setForeground(Color.WHITE);
+		btnConsultaVehiculo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		btnConsultaVehiculo.setBorder(new LineBorder(Color.WHITE, 2, true));
+		btnConsultaVehiculo.setBackground(SystemColor.activeCaption);
+		btnConsultaVehiculo.setBounds(517, 120, 222, 126);
+		panel_reserva.add(btnConsultaVehiculo);
+
+		button_3 = new JButton("Volver");
+
+		button_3.setForeground(Color.WHITE);
+		button_3.setBorder(new LineBorder(Color.WHITE, 2, true));
+		button_3.setBackground(SystemColor.activeCaption);
+		button_3.setBounds(10, 385, 894, 23);
+		panel_reserva.add(button_3);
+
 		panel_exito = new JPanel();
 		panel_exito.setBackground(SystemColor.activeCaption);
 		panel_exito.setBounds(5, 93, 914, 431);
 		contentPane.add(panel_exito);
 		panel_exito.setLayout(null);
 
-		lblSeHaDado = new JLabel("ï¿½ï¿½ï¿½ï¿½ Se ha dado de alta con ï¿½xito !!!!");
+		lblSeHaDado = new JLabel("¡¡¡¡ Se ha dado de alta con éxito !!!!");
 		lblSeHaDado.setForeground(Color.WHITE);
 		lblSeHaDado.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSeHaDado.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
@@ -778,69 +923,8 @@ public class Ventana extends JFrame {
 		btnVolver_3.setBounds(380, 211, 152, 40);
 		panel_exito.add(btnVolver_3);
 
-		JButton btnDespliegueDeTarifa = new JButton("Despliegue de tarifa");
-		btnDespliegueDeTarifa.setBounds(111, 186, 138, 71);
-		panel_exito.add(btnDespliegueDeTarifa);
-		panel_exito.setVisible(false);		
+
 		panel_exito.setVisible(false);
-
-
-		panel_empleado = new JPanel();
-		panel_empleado.setBounds(5, 93, 914, 431);
-		contentPane.add(panel_empleado);
-		panel_empleado.setLayout(null);
-		panel_empleado.setBackground(SystemColor.activeCaption);
-
-		button = new JButton("Dar alta cliente");
-		button.setForeground(Color.WHITE);
-
-		button.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		button.setBackground(SystemColor.activeCaption);
-		button.setBounds(96, 128, 234, 126);
-		button.setBorder(new LineBorder(Color.WHITE, 2, true));
-		panel_empleado.add(button);
-
-		btnDarAltaVehiculo = new JButton("Dar alta vehiculo");
-		btnDarAltaVehiculo.setForeground(Color.WHITE);
-		btnDarAltaVehiculo.setBorder(new LineBorder(Color.WHITE, 2, true));
-
-		btnDarAltaVehiculo.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnDarAltaVehiculo.setBackground(SystemColor.activeCaption);
-		btnDarAltaVehiculo.setBounds(564, 128, 261, 126);
-		panel_empleado.add(btnDarAltaVehiculo);
-
-		btnVolver_2 = new JButton("Volver");
-		btnVolver_2.setForeground(Color.WHITE);
-		btnVolver_2.setBackground(SystemColor.activeCaption);
-		btnVolver_2.setBorder(new LineBorder(Color.WHITE, 2, true));
-		btnVolver_2.setBounds(10, 385, 894, 23);
-		panel_empleado.add(btnVolver_2);
-		panel_empleado.setVisible(false);		
-		panel_empleado.setVisible(false);
-
-		button.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				panel_inicio.setVisible(false);
-				panel_cliente.setVisible(false);
-				panel_exito.setVisible(false);
-				panel_empleado.setVisible(false);
-				panel_alta_cliente.setVisible(true);
-				panel_alta_vehiculo.setVisible(false);
-				btnVolver_empleado.setVisible(true);
-			}
-		});//empleado->alta cliente
-		btnDarAltaVehiculo.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				panel_inicio.setVisible(false);
-				panel_cliente.setVisible(false);
-				panel_exito.setVisible(false);
-				panel_empleado.setVisible(false);
-				panel_alta_cliente.setVisible(false);
-				panel_alta_vehiculo.setVisible(true);
-			}
-		});//empleado->alta vehiculo
 
 		panel_alta_cliente = new JPanel();
 		panel_alta_cliente.setBounds(10, 100, 896, 321);
@@ -1117,33 +1201,6 @@ public class Ventana extends JFrame {
 				comboBox_4.setSelectedIndex(0);
 			}
 		});//alta cliente->empleado
-		btnVolver_2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// cliente				
-				textField.setText("");
-				textField_9.setText("");
-				textField_1.setText("");
-				textField_2.setText("");
-				textField_3.setText("");
-				comboBox.setSelectedIndex(0);
-				//vehiculo
-				textField_4.setText("");
-				textField_5.setText("");
-				textField_6.setText("");
-				comboBox_1.setSelectedIndex(0);
-				comboBox_3.setSelectedIndex(0);
-				rdbtnTechoSolar.setSelected(false);
-				comboBox_2.setSelectedIndex(0);
-				comboBox_4.setSelectedIndex(0);
-				panel_inicio.setVisible(true);
-				panel_cliente.setVisible(false);
-				panel_exito.setVisible(false);
-				panel_empleado.setVisible(false);
-				panel_alta_cliente.setVisible(false);
-				panel_alta_vehiculo.setVisible(false);
-			}
-		});//empleado a inicio
 		btnVolver_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1215,6 +1272,8 @@ public class Ventana extends JFrame {
 				panel_consulta_gama.setVisible(true);
 				panel_consulta_marca.setVisible(false);
 				panel_consulta_modelo.setVisible(false);
+				volver_gama_cliente.setVisible(true);
+				volver_gama_empleado.setVisible(false);
 			}
 		});//reserva->consulta
 		btnVolver_1.addMouseListener(new MouseAdapter() {
@@ -1259,6 +1318,7 @@ public class Ventana extends JFrame {
 				panel_consulta_marca.setVisible(false);
 				panel_consulta_modelo.setVisible(false);
 				resultado.setVisible(false);
+				scrollPane.setVisible(false);
 				button_4.setVisible(false);
 				op1="";
 				op2="";
@@ -1276,6 +1336,156 @@ public class Ventana extends JFrame {
 				rdbtnModelo_2.setSelected(false);
 			}
 		});//resultado->inicio
+		button_14.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(!rdbtnModelo.isSelected() && !rdbtnModelo_1.isSelected() && !rdbtnModelo_2.isSelected()) {
+					aviso_modelo.setVisible(true);
+				}
+				else {
+					if(rdbtnModelo.isSelected()) {
+						op3=rdbtnModelo.getText();
+					}
+					else if(rdbtnModelo_1.isSelected()){
+						op3=rdbtnModelo_1.getText();
+					}
+					else {
+						op3=rdbtnModelo_2.getText();
+					}
+
+					resultado.setText(op_modelo.getText() + " ; " + op3 + "\n\n"); 
+
+
+					String res = cv.consulta(op2, op3, op1);
+					if(res.isEmpty()) {
+						resultado.setText("No se han encontrados resultados para "+ op1+" ; "+op2+" ; "+op3 +" \r\n" + 
+								"Lo sentimos, no hemos encontrado ningún resultado para tu búsqueda.");
+					}
+					else {
+						resultado.setText(resultado.getText() + res);
+					}
+					aviso_modelo.setVisible(false);
+					panel_inicio.setVisible(false);
+					panel_cliente.setVisible(false);
+					panel_exito.setVisible(false);
+					panel_empleado.setVisible(false);
+					panel_alta_cliente.setVisible(false);
+					panel_alta_vehiculo.setVisible(false);	
+					panel_reserva.setVisible(false);
+					panel_elegir.setVisible(false);
+					panel_consulta_gama.setVisible(false);
+					panel_consulta_marca.setVisible(false);
+					panel_consulta_modelo.setVisible(false);
+					resultado.setVisible(true);
+					scrollPane.setVisible(true);
+					button_4.setVisible(true);
+				}
+			}
+		});//modelo->resultado
+		button_15.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				aviso_modelo.setVisible(false);
+				panel_inicio.setVisible(false);
+				panel_cliente.setVisible(false);
+				panel_exito.setVisible(false);
+				panel_empleado.setVisible(false);
+				panel_alta_cliente.setVisible(false);
+				panel_alta_vehiculo.setVisible(false);	
+				panel_reserva.setVisible(false);
+				panel_elegir.setVisible(false);
+				panel_consulta_gama.setVisible(false);
+				panel_consulta_marca.setVisible(true);
+				panel_consulta_modelo.setVisible(false);
+			}
+		});//modelo->marca
+		btnConsultarVehiculo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel_inicio.setVisible(false);
+				panel_cliente.setVisible(false);
+				panel_exito.setVisible(false);
+				panel_empleado.setVisible(false);
+				panel_alta_cliente.setVisible(false);
+				panel_alta_vehiculo.setVisible(false);	
+				panel_reserva.setVisible(false);
+				panel_elegir.setVisible(false);
+				panel_consulta_gama.setVisible(true);
+				panel_consulta_marca.setVisible(false);
+				panel_consulta_modelo.setVisible(false);
+				volver_gama_empleado.setVisible(true);
+				volver_gama_cliente.setVisible(false);
+			}
+		});//empleado->consulta_gama
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel_inicio.setVisible(false);
+				panel_cliente.setVisible(false);
+				panel_exito.setVisible(false);
+				panel_empleado.setVisible(false);
+				panel_alta_cliente.setVisible(true);
+				panel_alta_vehiculo.setVisible(false);
+				btnVolver_empleado.setVisible(true);
+			}
+		});//empleado->alta cliente
+		btnDarAltaVehiculo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel_inicio.setVisible(false);
+				panel_cliente.setVisible(false);
+				panel_exito.setVisible(false);
+				panel_empleado.setVisible(false);
+				panel_alta_cliente.setVisible(false);
+				panel_alta_vehiculo.setVisible(true);
+			}
+		});//empleado->alta vehiculo
+		btnVolver_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// cliente				
+				textField.setText("");
+				textField_9.setText("");
+				textField_1.setText("");
+				textField_2.setText("");
+				textField_3.setText("");
+				comboBox.setSelectedIndex(0);
+				//vehiculo
+				textField_4.setText("");
+				textField_5.setText("");
+				textField_6.setText("");
+				comboBox_1.setSelectedIndex(0);
+				comboBox_3.setSelectedIndex(0);
+				rdbtnTechoSolar.setSelected(false);
+				comboBox_2.setSelectedIndex(0);
+				comboBox_4.setSelectedIndex(0);
+				panel_inicio.setVisible(true);
+				panel_cliente.setVisible(false);
+				panel_exito.setVisible(false);
+				panel_empleado.setVisible(false);
+				panel_alta_cliente.setVisible(false);
+				panel_alta_vehiculo.setVisible(false);
+			}
+		});//empleado a inicio
+		volver_gama_empleado.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				aviso_gama.setVisible(false);
+				panel_inicio.setVisible(false);
+				panel_cliente.setVisible(false);
+				panel_exito.setVisible(false);
+				panel_empleado.setVisible(true);
+				panel_alta_cliente.setVisible(false);
+				panel_alta_vehiculo.setVisible(false);	
+				panel_reserva.setVisible(false);
+				panel_elegir.setVisible(false);
+				panel_consulta_gama.setVisible(false);
+				panel_consulta_marca.setVisible(false);
+				panel_consulta_modelo.setVisible(false);
+				volver_gama_empleado.setVisible(false);
+				volver_gama_cliente.setVisible(false);
+			}
+		});//consulta_gama->empleado
 		button_9.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -1308,7 +1518,7 @@ public class Ventana extends JFrame {
 				}
 			}
 		});//gama->marca
-		button_10.addMouseListener(new MouseAdapter() {
+		volver_gama_cliente.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				aviso_gama.setVisible(false);
@@ -1323,120 +1533,9 @@ public class Ventana extends JFrame {
 				panel_consulta_gama.setVisible(false);
 				panel_consulta_marca.setVisible(false);
 				panel_consulta_modelo.setVisible(false);
+				volver_gama_cliente.setVisible(false);
+				volver_gama_empleado.setVisible(false);
 			}
 		});//gama->reserva
-		btnConsultar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(!rdbtnMarca.isSelected() && !rdbtnMarca_1.isSelected() && !rdbtnMarca_2.isSelected()) {
-					aviso_marca.setVisible(true);
-				}
-				else {
-
-					if(rdbtnMarca.isSelected()) {
-						op2=rdbtnMarca.getText();
-					}
-					else if(rdbtnMarca_1.isSelected()) {
-						op2=rdbtnMarca_1.getText();
-					}
-					else {
-						op2=rdbtnMarca_2.getText();
-					}
-					op_modelo.setText(op_marca.getText() + " ; " + op2);
-					aviso_marca.setVisible(false);
-					panel_inicio.setVisible(false);
-					panel_cliente.setVisible(false);
-					panel_exito.setVisible(false);
-					panel_empleado.setVisible(false);
-					panel_alta_cliente.setVisible(false);
-					panel_alta_vehiculo.setVisible(false);	
-					panel_reserva.setVisible(false);
-					panel_elegir.setVisible(false);
-					panel_consulta_gama.setVisible(false);
-					panel_consulta_marca.setVisible(false);
-					panel_consulta_modelo.setVisible(true);
-				}
-			}
-		});//marca->modelo
-		button_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				aviso_marca.setVisible(false);
-				panel_inicio.setVisible(false);
-				panel_cliente.setVisible(false);
-				panel_exito.setVisible(false);
-				panel_empleado.setVisible(false);
-				panel_alta_cliente.setVisible(false);
-				panel_alta_vehiculo.setVisible(false);	
-				panel_reserva.setVisible(false);
-				panel_elegir.setVisible(false);
-				panel_consulta_gama.setVisible(true);
-				panel_consulta_marca.setVisible(false);
-				panel_consulta_modelo.setVisible(false);
-			}
-		});//marca->gama
-		button_14.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if(!rdbtnModelo.isSelected() && !rdbtnModelo_1.isSelected() && !rdbtnModelo_2.isSelected()) {
-					aviso_modelo.setVisible(true);
-				}
-				else {
-					if(rdbtnModelo.isSelected()) {
-						op3=rdbtnModelo.getText();
-					}
-					else if(rdbtnModelo_1.isSelected()){
-						op3=rdbtnModelo_1.getText();
-					}
-					else {
-						op3=rdbtnModelo_2.getText();
-					}
-
-					resultado.setText(op_modelo.getText() + " ; " + op3 + "\n\n"); 
-					ConsultaVehiculo cv = new ConsultaVehiculo();
-					cv.addBasededato();
-					
-					String res = cv.consulta(op2, op3, op1);
-					if(res.isEmpty()) {
-						resultado.setText("No se han encontrados resultados para "+ op1+" ; "+op2+" ; "+op3 +" \r\n" + 
-								"Lo sentimos, no hemos encontrado ningún resultado para tu búsqueda.");
-					}
-					else {
-						resultado.setText(resultado.getText() + res);
-					}
-					aviso_modelo.setVisible(false);
-					panel_inicio.setVisible(false);
-					panel_cliente.setVisible(false);
-					panel_exito.setVisible(false);
-					panel_empleado.setVisible(false);
-					panel_alta_cliente.setVisible(false);
-					panel_alta_vehiculo.setVisible(false);	
-					panel_reserva.setVisible(false);
-					panel_elegir.setVisible(false);
-					panel_consulta_gama.setVisible(false);
-					panel_consulta_marca.setVisible(false);
-					panel_consulta_modelo.setVisible(false);
-					resultado.setVisible(true);
-					button_4.setVisible(true);
-				}
-			}
-		});//modelo->resultado
-		button_15.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				aviso_modelo.setVisible(false);
-				panel_inicio.setVisible(false);
-				panel_cliente.setVisible(false);
-				panel_exito.setVisible(false);
-				panel_empleado.setVisible(false);
-				panel_alta_cliente.setVisible(false);
-				panel_alta_vehiculo.setVisible(false);	
-				panel_reserva.setVisible(false);
-				panel_elegir.setVisible(false);
-				panel_consulta_gama.setVisible(false);
-				panel_consulta_marca.setVisible(true);
-				panel_consulta_modelo.setVisible(false);
-			}
-		});//modelo->marca
 	}
 }
